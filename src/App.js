@@ -2,22 +2,26 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link, NavLink } from 'react-router-dom';
-import Nav from './components/Nav/Nav.js';
+import Header from './components/Header/Header.js';
 
 class App extends React.Component {
   render() {
     return (
-      <Router>
+      <div>
         <Route>
-          <Nav></Nav>
+          <Header />
         </Route>
 
         <Switch>
+          <Route path='/all'>
+            <h1>ABOUT WHAT?</h1>
+          </Route>
+
           <Route path='/about'>
             <h1>ABOUT WHAT?</h1>
           </Route>
 
-          <Route path='/'>
+          <Route path='/tech'>
             <div className="App">
               <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
@@ -36,7 +40,7 @@ class App extends React.Component {
             </div>
           </Route>
         </Switch>
-      </Router>
+      </div>
     );
   }
 }

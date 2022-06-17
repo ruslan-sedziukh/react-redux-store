@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap');
+
+.header-nav {
+  background-color: white;
+  height: 80px;
+  color: black;
+  font-size: 1rem;
+  max-width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Raleway';
+  font-weight: 400;
+  position: relative;
+}
+
+/* Left side of the nav */
+
+.header-nav-left a {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  padding: 28px 16px 30px 16px;
+  border-bottom: 2px solid white;
+}
+
+.header-nav-left a.active, .header-nav-left a:hover {
+  color: #5ECE7B;
+  border-bottom: 2px solid #5ECE7B;
+  font-weight: 600;
+}
+
+.header-nav-left {
+  margin-left: 101px;
+  display: inline-block;
+}
+
+/* Logo */
+
+.header-nav-logo {
+  width: 2.5625rem;
+  height: 2.5625rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Right side of the nav */
+
+.header-nav-right {
+  height: 100%;
+  margin-right: 101px;
+  display: inline-block;
+  font-size: 1.125rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.header-nav-currency-arrow {
+  height: 0.1875rem;
+  width: 0.375rem;
+  padding-left: 0.625rem;
+}
+
+.header-nav-cart {
+  width: 1.25rem;
+  height: 1.125rem;
+  margin-top: 0.3125rem;
+  margin-left: 1.375rem;
+}
