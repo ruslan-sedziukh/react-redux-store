@@ -8,20 +8,20 @@ import { connect } from 'react-redux';
 
 
 class Header extends React.Component {
+
+
   render() {
+    const links = [];
+
+    this.props.categories.forEach(category => {
+      links.push(<NavLink to={'/' + category}>{category}</NavLink>);
+    });
+
     return (
       <div className='header'>
         <nav className='header-nav'>
           <div className='header-nav-left'>
-            <NavLink to='/all'>
-              {this.props.categories} 
-            </NavLink>
-            <NavLink to='/clothes'>
-              CLOTHES
-            </NavLink>
-            <NavLink to='/tech'>
-              TECH
-            </NavLink>
+            {links}
           </div>
           <img src={logo} className='header-nav-logo'/>
           <div className='header-nav-right'>

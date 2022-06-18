@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const options = {
   name: 'categories',
-  initialState: ['ALL'],
+  initialState: ['ALL', 'CLOTHES', 'TECH', 'Bao'],
   reducers: {
     addCategorie: (state, action) => {
       return [...state, action.payload];
