@@ -3,7 +3,9 @@
 .header {
   background-color: white;
   position: fixed;
+  display: block;
   width: 100%;
+  max-width: 1440px;
   height: 80px;
   top: 0;
   z-index: 99;
@@ -12,7 +14,6 @@
 .header-nav {
   background-color: white;
   height: 100%;
-  max-width: 1440px;
 
   font-size: 1rem;
   font-family: 'Raleway';

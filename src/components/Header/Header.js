@@ -4,15 +4,17 @@ import { NavLink } from 'react-router-dom';
 import cart from './cart.svg';
 import arrow from './arrow.svg';
 import logo from './Brand icon.svg';
+import { connect } from 'react-redux';
+
 
 class Header extends React.Component {
   render() {
     return (
-      <header className='header'>
+      <div className='header'>
         <nav className='header-nav'>
           <div className='header-nav-left'>
             <NavLink to='/all'>
-              ALL 
+              {this.props.categories} 
             </NavLink>
             <NavLink to='/clothes'>
               CLOTHES
@@ -29,9 +31,15 @@ class Header extends React.Component {
             </span>
           </div>
         </nav>
-      </header>
+      </div>
     );
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return { categories: state.categories };
+}
+
+export default connect(mapStateToProps)(Header);
+
+// export default Header;
