@@ -2,10 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const options = {
   name: 'categories',
-  initialState: ['all', 'clothes', 'tech', ],
+  initialState: [ ],
   reducers: {
-    addCategorie: (state, action) => {
-      return [...state, action.payload];
+    getCategories: (state, action) => {
+      return [...action.payload];
     }
   }
 }
@@ -13,4 +13,4 @@ const options = {
 const categoriesSlice = createSlice(options);
 
 export default categoriesSlice.reducer;
-export const { addCategorie } = categoriesSlice.actions;
+export const { getCategories } = categoriesSlice.actions;
