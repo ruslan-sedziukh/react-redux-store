@@ -2,10 +2,21 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const options = {
   name: 'categories',
-  initialState: [ ],
+  initialState: {},
   reducers: {
     getCategories: (state, action) => {
-      return [...action.payload];
+      // getCategories is checking if this category already exist 
+      // to prevent exidental replacement of the category with blank object
+      const newCategories = {};
+      for (let category in action.payload) {
+        if(state[category]) {
+          newCategories[category] = state[category];
+        }
+        else {
+          newCategories[category] = action.payload[category];
+        }
+      }
+      return newCategories;
     }
   }
 }

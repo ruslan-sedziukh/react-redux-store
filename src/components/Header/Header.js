@@ -48,9 +48,9 @@ class Header extends React.Component {
         console.log(data.data.categories);
 
         // !!! Add categories to store here !!!
-        const categories = [];
+        const categories = {};
         data.data.categories.forEach(category => {
-          categories.push(category.name);
+          categories[(category.name)] = {};
         })
         this.props.getCategories(categories);
       }
@@ -69,9 +69,9 @@ class Header extends React.Component {
     // console.log('>>>>>>>>>>');
     // console.log(this.props);
 
-    this.props.categories.forEach(category => {
+    for(let category in this.props.categories) {
       links.push(<NavLink to={'/' + category}>{category}</NavLink>);
-    });
+    };
 
     return (
       <div className='header'>
