@@ -6,7 +6,7 @@ const options = {
   reducers: {
     getCategories: (state, action) => {
       // getCategories is checking if this category already exist 
-      // to prevent exidental replacement of the category with blank object
+      // to prevent accidental replacement of the category with blank object
       const newCategories = {};
       for (let category in action.payload) {
         if(state[category]) {

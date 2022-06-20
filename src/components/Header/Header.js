@@ -70,11 +70,12 @@ class Header extends React.Component {
     // console.log(this.props);
 
     for(let category in this.props.categories) {
-      links.push(<NavLink to={'/' + category}>{category}</NavLink>);
+      links.push(<NavLink to={'/category/' + category}>{category}</NavLink>);
     };
 
     return (
-      <div className='header'>
+      <div>
+        <div className='header'>
         <nav className='header-nav'>
           <div className='header-nav-left'>
             {links}
@@ -87,6 +88,9 @@ class Header extends React.Component {
             </span>
           </div>
         </nav>
+      </div>
+
+      <div className='header-space'></div>
       </div>
     );
   }
