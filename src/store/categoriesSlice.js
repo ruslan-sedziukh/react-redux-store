@@ -17,6 +17,12 @@ const options = {
         }
       }
       return newCategories;
+    },
+    getProducts: (state, action) => {
+      const newState = {...state, [action.payload.category]: action.payload.products};
+      console.log('newState: ');
+      console.log(newState);
+      return newState;
     }
   }
 }
@@ -24,4 +30,4 @@ const options = {
 const categoriesSlice = createSlice(options);
 
 export default categoriesSlice.reducer;
-export const { getCategories } = categoriesSlice.actions;
+export const { getCategories, getProducts } = categoriesSlice.actions;

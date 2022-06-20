@@ -31,7 +31,7 @@ class Header extends React.Component {
 
 
   async getCategories() {
-    console.log('Call getCategories');
+    // console.log('Call getCategories');
     try {
       const response = await fetch('http://localhost:4000/', {
         method: 'POST',
@@ -44,8 +44,8 @@ class Header extends React.Component {
       });
       if(response.ok) {
         const data  = await response.json();
-        console.log('Fetch work!');
-        console.log(data.data.categories);
+        // console.log('Fetch work!');
+        // console.log(data.data.categories);
 
         // !!! Add categories to store here !!!
         const categories = {};

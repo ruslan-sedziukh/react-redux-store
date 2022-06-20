@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { withRouter } from "react-router";
+import { getProducts } from '../../store/categoriesSlice.js';
 
 class CategoryPage extends React.Component {
   async getProducts() {
@@ -13,13 +14,22 @@ class CategoryPage extends React.Component {
           'content-type': 'application/json'
         },
         body: JSON.stringify({
-          "query" : "query { category(input: {title: tech}) { products { name prices { currency { label } amount } } } }"
+          "query" : "query { category(input: {title: \"" + this.props.match.params.category +"\"}) { products { name prices { currency { label } amount } } } }"
         })
       });
       if(response.ok) {
         const data  = await response.json();
         console.log('Fetch work!');
         console.log(data.data);
+
+        const payload = {
+            category: this.props.match.params.category,
+            products: data.data.category.products
+        } ;
+
+        console.log('payload: ');
+        console.log(payload);
+        this.props.getProducts(payload);
 
         // !!! Add categories to store here !!!
         // const categories = {};
@@ -38,6 +48,12 @@ class CategoryPage extends React.Component {
     this.getProducts();
   }
 
+  componentDidUpdate(prevProps) {
+    if(prevProps.match.params.category != this.props.match.params.category) {
+      this.getProducts();
+    }
+  }
+
   render() {
     console.log('Category: ' + this.props.match.params.category);
     return (
@@ -46,4 +62,18 @@ class CategoryPage extends React.Component {
   }
 }
 
-export default withRouter(CategoryPage);
+function mapStateToProps(state) {
+  return { categories: state.categories };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // dispatching plain actions
+    getProducts: (payload) => dispatch(getProducts(payload))
+  }
+}
+
+
+const connectedCategoryPage = connect(mapStateToProps, mapDispatchToProps)(CategoryPage);
+
+export default withRouter(connectedCategoryPage);
