@@ -54,14 +54,20 @@ class CategoryPage extends React.Component {
     console.log('>>>>> category: ');
     console.log(this.props.categories/* [this.props.match.params.category] */);
 
-    const products = [];
+    let products = [];
     let index = 0;
 
-    // this.props.categories[this.props.match.params.category]['products'].forEach(element => {
-    //   products.push(<ProductPreview category={this.props.match.params.category} index={index} />);
-    //   index ++;
-    // });
-
+    // Two if`s needed to prevent error occurring when reloading category page. 
+    // In this case when component render categories is an empty object and 
+    // we need to wait for this data to be fetched before render. 
+    if(this.props.categories[this.props.match.params.category]) {
+      if(this.props.categories[this.props.match.params.category]['products'])
+      this.props.categories[this.props.match.params.category]['products'].forEach(element => {
+        products.push(<ProductPreview category={this.props.match.params.category} index={index} />);
+        index ++;
+      });
+    }
+    
     return (
       <div className="category-container">
         <h1 className="category-title">{this.props.match.params.category}</h1>
