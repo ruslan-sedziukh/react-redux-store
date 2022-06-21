@@ -19,7 +19,10 @@ const options = {
       return newCategories;
     },
     getProducts: (state, action) => {
-      const newState = {...state, [action.payload.category]: action.payload.products};
+      // It`s probably ok that products are overwritten every time and 
+      // more detailed data fetched before is gone because still we fetch
+      // new detailed data about product every time we open product page. 
+      const newState = {...state, [action.payload.category]: { products: action.payload.products} };
       console.log('newState: ');
       console.log(newState);
       return newState;

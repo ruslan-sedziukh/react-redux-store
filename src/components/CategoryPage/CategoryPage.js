@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
 import { withRouter } from "react-router";
 import { getProducts } from '../../store/categoriesSlice.js';
 import './CategoryPage.css';
+import CategoryPreview from '../ProductPreview/ProductPreview.js';
+import ProductPreview from "../ProductPreview/ProductPreview.js";
 
 class CategoryPage extends React.Component {
   async getProducts() {
@@ -15,7 +16,7 @@ class CategoryPage extends React.Component {
           'content-type': 'application/json'
         },
         body: JSON.stringify({
-          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { name prices { currency { label } amount } } } }"
+          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { name prices { currency { label } amount } gallery } } }"
         })
       });
 
@@ -50,10 +51,24 @@ class CategoryPage extends React.Component {
   }
 
   render() {
-    console.log('Category: ' + this.props.match.params.category);
+    console.log('>>>>> category: ');
+    console.log(this.props.categories/* [this.props.match.params.category] */);
+
+    const products = [];
+    let index = 0;
+
+    // this.props.categories[this.props.match.params.category]['products'].forEach(element => {
+    //   products.push(<ProductPreview category={this.props.match.params.category} index={index} />);
+    //   index ++;
+    // });
+
     return (
-      <div className="category-page">
+      <div className="category-container">
         <h1 className="category-title">{this.props.match.params.category}</h1>
+        <div className="products-container">
+           {/* Here should be product-preview */}
+           {products}
+        </div>
       </div>
     );
   }
