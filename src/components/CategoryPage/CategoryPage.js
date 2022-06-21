@@ -8,7 +8,6 @@ import ProductPreview from "../ProductPreview/ProductPreview.js";
 
 class CategoryPage extends React.Component {
   async getProducts() {
-    console.log('Call getProducts');
     try {
       const response = await fetch('http://localhost:4000/', {
         method: 'POST',
@@ -16,22 +15,18 @@ class CategoryPage extends React.Component {
           'content-type': 'application/json'
         },
         body: JSON.stringify({
-          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { name prices { currency { label } amount } gallery } } }"
+          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { name prices { currency { label symbol } amount } gallery } } }"
         })
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Fetch work!');
-        console.log(data.data);
 
         const payload = {
           category: this.props.match.params.category,
           products: data.data.category.products
         };
 
-        console.log('payload: ');
-        console.log(payload);
         this.props.getProducts(payload);
       }
     }
@@ -51,9 +46,6 @@ class CategoryPage extends React.Component {
   }
 
   render() {
-    console.log('>>>>> category: ');
-    console.log(this.props.categories/* [this.props.match.params.category] */);
-
     let products = [];
     let index = 0;
 
@@ -63,7 +55,11 @@ class CategoryPage extends React.Component {
     if(this.props.categories[this.props.match.params.category]) {
       if(this.props.categories[this.props.match.params.category]['products'])
       this.props.categories[this.props.match.params.category]['products'].forEach(element => {
-        products.push(<ProductPreview category={this.props.match.params.category} index={index} />);
+        products.push(<ProductPreview 
+          category={this.props.match.params.category} 
+          index={index} 
+          currency={'USD'}
+          />);
         index ++;
       });
     }
