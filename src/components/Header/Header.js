@@ -39,11 +39,11 @@ class Header extends React.Component {
           'content-type': 'application/json'
         },
         body: JSON.stringify({
-          "query" : "query { categories { name } }"
+          "query": "query { categories { name } }"
         })
       });
-      if(response.ok) {
-        const data  = await response.json();
+      if (response.ok) {
+        const data = await response.json();
         // console.log('Fetch work!');
         // console.log(data.data.categories);
 
@@ -55,7 +55,7 @@ class Header extends React.Component {
         this.props.getCategories(categories);
       }
     }
-    catch(error) {
+    catch (error) {
       console.log(error);
     }
   }
@@ -69,28 +69,28 @@ class Header extends React.Component {
     // console.log('>>>>>>>>>>');
     // console.log(this.props);
 
-    for(let category in this.props.categories) {
+    for (let category in this.props.categories) {
       links.push(<NavLink to={'/category/' + category}>{category}</NavLink>);
     };
 
     return (
-      <div>
+      <div className='header-container'>
         <div className='header'>
-        <nav className='header-nav'>
-          <div className='header-nav-left'>
-            {links}
-          </div>
-          <img src={logo} className='header-nav-logo'/>
-          <div className='header-nav-right'>
-            <span className='header-nav-currency'>$ <img src={arrow} className='header-nav-currency-arrow' /></span>
-            <span>
-              <img src={cart} alt='Cart image' className='header-nav-cart'/>
-            </span>
-          </div>
-        </nav>
-      </div>
+          <nav className='header-nav'>
+            <div className='header-nav-left'>
+              {links}
+            </div>
+            <img src={logo} className='header-nav-logo' />
+            <div className='header-nav-right'>
+              <span className='header-nav-currency'>$ <img src={arrow} className='header-nav-currency-arrow' /></span>
+              <span>
+                <img src={cart} alt='Cart image' className='header-nav-cart' />
+              </span>
+            </div>
+          </nav>
+        </div>
 
-      <div className='header-space'></div>
+        <div className='header-space'></div>
       </div>
     );
   }

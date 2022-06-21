@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { withRouter } from "react-router";
 import { getProducts } from '../../store/categoriesSlice.js';
+import './CategoryPage.css';
 
 class CategoryPage extends React.Component {
   async getProducts() {
@@ -14,32 +15,26 @@ class CategoryPage extends React.Component {
           'content-type': 'application/json'
         },
         body: JSON.stringify({
-          "query" : "query { category(input: {title: \"" + this.props.match.params.category +"\"}) { products { name prices { currency { label } amount } } } }"
+          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { name prices { currency { label } amount } } } }"
         })
       });
-      if(response.ok) {
-        const data  = await response.json();
+
+      if (response.ok) {
+        const data = await response.json();
         console.log('Fetch work!');
         console.log(data.data);
 
         const payload = {
-            category: this.props.match.params.category,
-            products: data.data.category.products
-        } ;
+          category: this.props.match.params.category,
+          products: data.data.category.products
+        };
 
         console.log('payload: ');
         console.log(payload);
         this.props.getProducts(payload);
-
-        // !!! Add categories to store here !!!
-        // const categories = {};
-        // data.data.categories.forEach(category => {
-        //   categories[(category.name)] = {};
-        // })
-        // this.props.getCategories(categories);
       }
     }
-    catch(error) {
+    catch (error) {
       console.log(error);
     }
   }
@@ -49,7 +44,7 @@ class CategoryPage extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if(prevProps.match.params.category != this.props.match.params.category) {
+    if (prevProps.match.params.category != this.props.match.params.category) {
       this.getProducts();
     }
   }
@@ -57,7 +52,9 @@ class CategoryPage extends React.Component {
   render() {
     console.log('Category: ' + this.props.match.params.category);
     return (
-      <h1>{this.props.match.params.category}</h1>
+      <div className="category-page">
+        <h1 className="category-title">{this.props.match.params.category}</h1>
+      </div>
     );
   }
 }
@@ -72,7 +69,6 @@ const mapDispatchToProps = (dispatch) => {
     getProducts: (payload) => dispatch(getProducts(payload))
   }
 }
-
 
 const connectedCategoryPage = connect(mapStateToProps, mapDispatchToProps)(CategoryPage);
 
