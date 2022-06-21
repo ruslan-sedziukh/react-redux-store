@@ -1,0 +1,27 @@
+.product-preview {
+  padding: 1rem;;
+}
+
+.product-preview-img-container {
+  width: 22.25rem;
+  height: 22.25rem;
+  overflow: hidden;
+  /* line-height: 160%; */
+}
+
+.product-preview-img {
+  max-width: 22.25rem;
+  max-height: auto;
+}
+
+.product-preview-name {
+  font-weight: 300;
+  font-size: 1.125rem;
+  margin: 1.5rem 0 0 0;
+}
+
+.product-preview-price {
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin: 0;
+}

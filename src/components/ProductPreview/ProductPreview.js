@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
+import './ProductPreview.css';
 
 class ProductPreview extends React.Component {
   render() {
@@ -21,7 +22,9 @@ class ProductPreview extends React.Component {
 
     return(
       <div className="product-preview">
-        <img className="product-preview-img" src={src} />
+        <div className="product-preview-img-container">
+          <img className="product-preview-img" src={src} />
+        </div>
         <p className="product-preview-name">{name}</p>
         <p className="product-preview-price">{symbol}{amount}</p>
       </div>
