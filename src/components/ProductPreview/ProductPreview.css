@@ -1,5 +1,6 @@
 .product-preview {
-  padding: 1rem;;
+  padding: 1rem;
+  display: inline-block;
 }
 
 .product-preview-img-container {

@@ -81,7 +81,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // dispatching plain actions
     getProducts: (payload) => dispatch(getProducts(payload))
   }
 }
