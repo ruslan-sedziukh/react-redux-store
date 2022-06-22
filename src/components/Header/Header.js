@@ -6,7 +6,7 @@ import arrow from './arrow.svg';
 import logo from './Brand icon.svg';
 import { connect } from 'react-redux';
 import { getCategories } from '../../store/categoriesSlice.js';
-import { getCurrencies } from '../../store/currenciesSlice.js';
+import { getCurrencies, setCurrency } from '../../store/currenciesSlice.js';
 
 
 class Header extends React.Component {
@@ -61,9 +61,14 @@ class Header extends React.Component {
     }
   }
 
+  setDefaultCurrency() {
+    this.props.setCurrency(this.props.currencies.currencies[0]);
+  }
+
   componentDidMount() {
     this.getCategories();
     this.getCurrencies();
+    this.setDefaultCurrency();
   }
 
   render() {
@@ -74,6 +79,9 @@ class Header extends React.Component {
     };
 
     const jjj = 0;
+
+    console.log('currencies: ');
+    console.log(this.props.currencies);
 
     return (
       <div className='header-container'>
@@ -91,7 +99,7 @@ class Header extends React.Component {
               <div className='header-nav-currency-div'> 
 
                 <span className='header-nav-currency'>
-                  $<img src={arrow} className='header-nav-currency-arrow header-nav-currency-arrow-down' />
+                  {this.props.currencies.currency.symbol}<img src={arrow} className='header-nav-currency-arrow header-nav-currency-arrow-down' />
                 </span>
 
                 {jjj ? 'Heal yeah' : ''}
@@ -120,7 +128,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => {
   return {
     getCategories: (categories) => dispatch(getCategories(categories)),
-    getCurrencies: (currencies) => dispatch(getCurrencies(currencies))
+    getCurrencies: (currencies) => dispatch(getCurrencies(currencies)),
+    setCurrency: (currency) => dispatch(setCurrency(currency))
   }
 }
 
