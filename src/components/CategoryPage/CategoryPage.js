@@ -68,7 +68,6 @@ class CategoryPage extends React.Component {
       <div className="category-container">
         <h1 className="category-title">{this.props.match.params.category}</h1>
         <div className="products-container">
-           {/* Here should be product-preview */}
            {products}
         </div>
       </div>
