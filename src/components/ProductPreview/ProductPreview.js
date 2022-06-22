@@ -14,12 +14,6 @@ class ProductPreview extends React.Component {
     const amount = pricesArr[priceIndex]['amount'];
     const src = this.props.categories[this.props.category]['products'][[this.props.index]]['gallery'][0];
 
-    console.log('this.props.categories: ');
-    console.log(this.props.categories);
-
-    console.log('src: ');
-    console.log(src);
-
     return(
       <div className="product-preview">
         <div className="product-preview-img-container">

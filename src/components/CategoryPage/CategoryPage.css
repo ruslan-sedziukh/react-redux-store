@@ -13,18 +13,8 @@
 }
 
 .products-container {
-  /* Flex-box */
-
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; */
-
-  /* Grid */
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  /* row-gap: 6,4375rem;
-  column-gap: 2.5rem; */
   row-gap: 6.4375rem;
   column-gap: 2.5rem;
 
