@@ -1,3 +1,8 @@
 .currency-list-container {
   position: fixed;
+  font-size: 1.125rem;
+  font-weight: 500;
+  top: 2rem;
+  width: max-content;
+  background-color: white;
 }

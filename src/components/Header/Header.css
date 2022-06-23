@@ -119,4 +119,5 @@
 
 .header-nav-currency-div {
   position: relative;
+  transform: scaleX(1);
 }

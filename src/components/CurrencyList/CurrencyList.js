@@ -8,9 +8,6 @@ class CurrencyList extends React.Component {
     const currencies = [];
 
     if(this.props.currencies.currencies) {
-      console.log('>>>>>>>');
-      console.log(this.props.currencies.currencies);
-
       this.props.currencies.currencies.forEach(currency => {
         currencies.push(<div className='currency-list-currency'>{currency.symbol} {currency.label}</div>);
       });
