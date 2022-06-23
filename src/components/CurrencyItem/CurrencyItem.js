@@ -11,6 +11,7 @@ class CurrencyItem extends React.Component {
 
   onClick() {
     this.props.setCurrency(this.props.currency);
+    this.props.closeList();
   }
 
   render() {

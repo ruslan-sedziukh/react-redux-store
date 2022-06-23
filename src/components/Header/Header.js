@@ -10,6 +10,13 @@ import { getCurrencies, setCurrency } from '../../store/currenciesSlice.js';
 import CurrencyList from '../CurrencyList/CurrencyList.js';
 
 class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { currencyList: false };
+    this.currencyOnClick = this.currencyOnClick.bind(this);
+    this.closeList = this.closeList.bind(this);
+  }
+
   async getCategories() {
     try {
       const response = await fetch('http://localhost:4000/', {
@@ -69,17 +76,25 @@ class Header extends React.Component {
     this.setDefaultCurrency();
   }
 
+  currencyOnClick(){
+    if(this.state.currencyList === false) {
+      this.setState({ currencyList: true });
+    }
+    else {
+      this.setState({ currencyList: false });
+    }
+  }
+
+  closeList() {
+    this.setState({ currencyList: false });
+  }
+
   render() {
     const links = [];
 
     for (let category in this.props.categories) {
       links.push(<NavLink to={'/category/' + category}>{category}</NavLink>);
     };
-
-    // This is for CurrencyList. 
-    // It should be replaced with something else. 
-    // Maybe some state value.
-    const jjj = 1; 
 
     return (
       <div className='header-container'>
@@ -94,15 +109,14 @@ class Header extends React.Component {
 
             <div className='header-nav-right'>
 
-              <div className='header-nav-currency-div'> 
+              <div className='header-nav-currency-container'> 
 
-                <span className='header-nav-currency'>
+                <div className='header-nav-currency' onClick={this.currencyOnClick}>
                   {this.props.currencies.currency? this.props.currencies.currency.symbol : ''}
                   <img src={arrow} className='header-nav-currency-arrow header-nav-currency-arrow-down' />
-                </span>
+                </div>
 
-                {/* Here should be CurrencyList if(!) user opened it! */}
-                {jjj ? <CurrencyList /> : ''}
+                {this.state.currencyList ? <CurrencyList closeList={this.closeList} /> : ''}
 
               </div>
 

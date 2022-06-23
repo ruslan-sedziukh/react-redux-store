@@ -117,7 +117,11 @@
 
 /* For CurrencyList */
 
-.header-nav-currency-div {
+.header-nav-currency-container {
   position: relative;
   transform: scaleX(1);
+}
+
+.header-nav-currency:hover {
+  cursor: pointer;
 }
