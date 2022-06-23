@@ -65,9 +65,9 @@ class Header extends React.Component {
     this.props.setCurrency(this.props.currencies.currencies[0]);
   }
 
-  componentDidMount() {
-    this.getCategories();
-    this.getCurrencies();
+  async componentDidMount() {
+    await this.getCategories();
+    await this.getCurrencies();
     this.setDefaultCurrency();
   }
 
@@ -99,7 +99,8 @@ class Header extends React.Component {
               <div className='header-nav-currency-div'> 
 
                 <span className='header-nav-currency'>
-                  {this.props.currencies.currency.symbol}<img src={arrow} className='header-nav-currency-arrow header-nav-currency-arrow-down' />
+                  {this.props.currencies.currency? this.props.currencies.currency.symbol : ''}
+                  <img src={arrow} className='header-nav-currency-arrow header-nav-currency-arrow-down' />
                 </span>
 
                 {jjj ? 'Heal yeah' : ''}
