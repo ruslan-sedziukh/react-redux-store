@@ -114,3 +114,9 @@
   margin-top: 0.3125rem;
   margin-left: 1.375rem;
 }
+
+/* For CurrencyList */
+
+.header-nav-currency-div {
+  position: relative;
+}

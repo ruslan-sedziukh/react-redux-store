@@ -7,7 +7,7 @@ import logo from './Brand icon.svg';
 import { connect } from 'react-redux';
 import { getCategories } from '../../store/categoriesSlice.js';
 import { getCurrencies, setCurrency } from '../../store/currenciesSlice.js';
-
+import CurrencyList from '../CurrencyList/CurrencyList.js';
 
 class Header extends React.Component {
   async getCategories() {
@@ -76,7 +76,10 @@ class Header extends React.Component {
       links.push(<NavLink to={'/category/' + category}>{category}</NavLink>);
     };
 
-    const jjj = 0; // This is for CurrencyList
+    // This is for CurrencyList. 
+    // It should be replaced with something else. 
+    // Maybe some state value.
+    const jjj = 1; 
 
     return (
       <div className='header-container'>
@@ -99,7 +102,7 @@ class Header extends React.Component {
                 </span>
 
                 {/* Here should be CurrencyList if(!) user opened it! */}
-                {jjj ? 'Heal yeah' : ''}
+                {jjj ? <CurrencyList /> : ''}
 
               </div>
 
