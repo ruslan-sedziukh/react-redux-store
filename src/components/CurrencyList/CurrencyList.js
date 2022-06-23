@@ -2,6 +2,7 @@ import React from 'react';
 import './CurrencyList.css';
 import { connect } from 'react-redux';
 import { setCurrency } from '../../store/currenciesSlice.js';
+import CurrencyItem from '../CurrencyItem/CurrencyItem';
 
 class CurrencyList extends React.Component {
   render() {
@@ -9,7 +10,9 @@ class CurrencyList extends React.Component {
 
     if(this.props.currencies.currencies) {
       this.props.currencies.currencies.forEach(currency => {
-        currencies.push(<div className='currency-list-currency'>{currency.symbol} {currency.label}</div>);
+        currencies.push(
+          <CurrencyItem currency={currency} />
+        );
       });
     }
 

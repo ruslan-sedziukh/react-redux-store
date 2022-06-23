@@ -9,11 +9,3 @@
   /* padding: 0.75rem 0; */
   border: 0.5px solid rgba(0, 0, 0, 0.102);
 }
-
-.currency-list-currency {
-  padding: 0.7rem 1.25rem;
-}
-
-.currency-list-currency:hover {
-  background-color: #EEEEEE;
-}
