@@ -51,8 +51,6 @@ class Header extends React.Component {
         const data = await response.json();
 
         const currencies = data.data.currencies;
-        // console.log('>>> categories: ');
-        // console.log(currencies);
         this.props.getCurrencies(currencies);
       }
     }
@@ -78,10 +76,7 @@ class Header extends React.Component {
       links.push(<NavLink to={'/category/' + category}>{category}</NavLink>);
     };
 
-    const jjj = 0;
-
-    console.log('currencies: ');
-    console.log(this.props.currencies);
+    const jjj = 0; // This is for CurrencyList
 
     return (
       <div className='header-container'>
@@ -103,6 +98,7 @@ class Header extends React.Component {
                   <img src={arrow} className='header-nav-currency-arrow header-nav-currency-arrow-down' />
                 </span>
 
+                {/* Here should be CurrencyList if(!) user opened it! */}
                 {jjj ? 'Heal yeah' : ''}
 
               </div>

@@ -52,13 +52,13 @@ class CategoryPage extends React.Component {
     // Two if`s needed to prevent error occurring when reloading category page. 
     // In this case when component render categories is an empty object and 
     // we need to wait for this data to be fetched before render. 
-    if(this.props.categories[this.props.match.params.category]) {
+    if(this.props.categories[this.props.match.params.category] && this.props.currencies.currency) {
       if(this.props.categories[this.props.match.params.category]['products'])
       this.props.categories[this.props.match.params.category]['products'].forEach(element => {
         products.push(<ProductPreview 
           category={this.props.match.params.category} 
           index={index} 
-          currency={'USD'}
+          currency={this.props.currencies.currency.label}
           />);
         index ++;
       });
@@ -76,7 +76,7 @@ class CategoryPage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { categories: state.categories };
+  return { categories: state.categories, currencies: state.currencies };
 }
 
 const mapDispatchToProps = (dispatch) => {
