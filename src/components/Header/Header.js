@@ -96,6 +96,14 @@ class Header extends React.Component {
       links.push(<NavLink to={'/category/' + category}>{category}</NavLink>);
     };
 
+    let arrowClass = '';
+    if(this.state.currencyList === false) {
+      arrowClass = 'header-nav-currency-arrow header-nav-currency-arrow-down';
+    }
+    else {
+      arrowClass = 'header-nav-currency-arrow header-nav-currency-arrow-up';
+    }
+
     return (
       <div className='header-container'>
         <div className='header'>
@@ -113,7 +121,7 @@ class Header extends React.Component {
 
                 <div className='header-nav-currency' onClick={this.currencyOnClick}>
                   {this.props.currencies.currency? this.props.currencies.currency.symbol : ''}
-                  <img src={arrow} className='header-nav-currency-arrow header-nav-currency-arrow-down' />
+                  <img src={arrow} className={arrowClass} />
                 </div>
 
                 {this.state.currencyList ? <CurrencyList closeList={this.closeList} /> : ''}
