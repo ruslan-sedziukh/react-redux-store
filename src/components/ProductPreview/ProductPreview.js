@@ -3,8 +3,14 @@ import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import './ProductPreview.css';
 import cart from './cart.svg';
+import { addToCart } from '../../store/cartSlice.js';
 
 class ProductPreview extends React.Component {
+  constructor(props) {
+    super(props);
+    this.cartClick = this.cartClick.bind(this);
+  }
+
   onMouseEnter(event) {
     // Get product-preview
     let node = event.target; 
@@ -35,6 +41,10 @@ class ProductPreview extends React.Component {
     node.style.boxShadow = '';
   }
 
+  cartClick() {
+    this.props.addToCart({ id: this.props.id});
+  }
+
   render() {
     const name = this.props.categories[this.props.category]['products'][this.props.index]['name'];
     const pricesArr = this.props.categories[this.props.category]['products'][this.props.index]['prices'];
@@ -49,7 +59,7 @@ class ProductPreview extends React.Component {
       <div className="product-preview" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
         <div className="product-preview-img-container">
           <img className="product-preview-img" src={src} />
-          <div className="product-preview-cart-container">
+          <div className="product-preview-cart-container" onClick={this.cartClick}>
             <img className="product-preview-cart" src={cart} />
           </div>
         </div>
@@ -64,4 +74,10 @@ function mapStateToProps(state) {
   return { categories: state.categories };
 }
 
-export default connect(mapStateToProps)(ProductPreview);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => dispatch(addToCart(product))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPreview);

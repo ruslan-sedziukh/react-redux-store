@@ -90,6 +90,9 @@ class Header extends React.Component {
   }
 
   render() {
+    // console.log('>>>>> Cart: ');
+    // console.log(this.props.cart);
+
     const links = [];
 
     for (let category in this.props.categories) {
@@ -144,7 +147,7 @@ class Header extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { categories: state.categories, currencies: state.currencies };
+  return { categories: state.categories, currencies: state.currencies, cart: state.cart };
 }
 
 const mapDispatchToProps = (dispatch) => {

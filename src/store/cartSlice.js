@@ -10,7 +10,7 @@ const options = {
       });
 
       if(index === -1){
-        state.push(action.payload);
+        state.push({ id: action.payload.id, amount: 1 });
       } 
       else {
         state[index].amount ++;
