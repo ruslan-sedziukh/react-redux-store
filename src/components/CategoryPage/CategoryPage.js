@@ -15,7 +15,7 @@ class CategoryPage extends React.Component {
           'content-type': 'application/json'
         },
         body: JSON.stringify({
-          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { name prices { currency { label symbol } amount } gallery } } }"
+          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { id name prices { currency { label symbol } amount } gallery } } }"
         })
       });
 
@@ -57,6 +57,7 @@ class CategoryPage extends React.Component {
       this.props.categories[this.props.match.params.category]['products'].forEach(element => {
         products.push(<ProductPreview 
           category={this.props.match.params.category} 
+          id={element.id}
           index={index} 
           currency={this.props.currencies.currency.label}
           />);
