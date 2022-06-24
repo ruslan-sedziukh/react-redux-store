@@ -5,27 +5,37 @@ import './ProductPreview.css';
 import cart from './cart.svg';
 
 class ProductPreview extends React.Component {
-  displayCart(event) {
+  onMouseEnter(event) {
+    // Get product-preview
     let node = event.target; 
     while(node.className != 'product-preview') {
       node = node.parentElement;
     }
+
+    // Display cart
     const elements = node.getElementsByClassName('product-preview-cart-container');
     elements[0].style.display = 'flex';
+
+    // Focus product-preview
+    node.style.boxShadow = '0px 4px 35px rgba(168, 172, 176, 0.19)';
   }
 
-  hideCart(event) {
+  onMouseLeave(event) {
+    // Get product-preview
     let node = event.target; 
     while(node.className != 'product-preview') {
       node = node.parentElement;
     }
+
+    // Hide cart
     const elements = node.getElementsByClassName('product-preview-cart-container');
     elements[0].style.display = 'none';
+
+    // Unfocus product-preview
+    node.style.boxShadow = '';
   }
 
   render() {
-    console.log('Render ProdructPreview!');
-
     const name = this.props.categories[this.props.category]['products'][this.props.index]['name'];
     const pricesArr = this.props.categories[this.props.category]['products'][this.props.index]['prices'];
     const priceIndex = pricesArr.findIndex(element => {
@@ -36,7 +46,7 @@ class ProductPreview extends React.Component {
     const src = this.props.categories[this.props.category]['products'][[this.props.index]]['gallery'][0];
 
     return(
-      <div className="product-preview" onMouseEnter={this.displayCart} onMouseLeave={this.hideCart}>
+      <div className="product-preview" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
         <div className="product-preview-img-container">
           <img className="product-preview-img" src={src} />
           <div className="product-preview-cart-container">
