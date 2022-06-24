@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import './ProductPreview.css';
+import cart from './cart.svg';
 
 class ProductPreview extends React.Component {
   render() {
@@ -18,6 +19,9 @@ class ProductPreview extends React.Component {
       <div className="product-preview">
         <div className="product-preview-img-container">
           <img className="product-preview-img" src={src} />
+          <div className="product-preview-cart-container">
+            <img className="product-preview-cart" src={cart} />
+          </div>
         </div>
         <p className="product-preview-name">{name}</p>
         <p className="product-preview-price">{symbol}{amount}</p>

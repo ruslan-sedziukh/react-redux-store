@@ -6,18 +6,11 @@
 .product-preview-img-container {
   width: 22.25rem;
   height: 22.25rem;
-  overflow: hidden;
-  /* line-height: 160%; */
   display: flex;
   vertical-align: middle;
   justify-content: center; 
+  position: relative;
 }
-
-/* .product-preview-img {
-  max-width: 22.25rem;
-  max-height: auto; 
-  flex-shrink: 0;
-} */
 
 .product-preview-name {
   font-weight: 300;
@@ -29,4 +22,26 @@
   font-weight: 500;
   font-size: 1.125rem;
   margin: 0;
+}
+
+/* Cart */
+
+.product-preview-cart-container {
+  background-color: #5ECE7B;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+
+  position: absolute;
+  bottom: -1.625rem;
+  right: 1.625rem;
+
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.product-preview-cart {
+  width: 1.5rem;
+  height: auto;
 }
