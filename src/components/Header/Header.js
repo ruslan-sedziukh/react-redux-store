@@ -90,9 +90,6 @@ class Header extends React.Component {
   }
 
   render() {
-    // console.log('>>>>> Cart: ');
-    // console.log(this.props.cart);
-
     const links = [];
 
     for (let category in this.props.categories) {
@@ -105,6 +102,15 @@ class Header extends React.Component {
     }
     else {
       arrowClass = 'header-nav-currency-arrow header-nav-currency-arrow-up';
+    }
+
+    let counter = 0;
+    let badgeOn = false;
+    this.props.cart.forEach(element => {
+      counter = counter + element.amount;
+    });
+    if(counter) {
+      badgeOn = true;
     }
 
     return (
@@ -133,6 +139,7 @@ class Header extends React.Component {
 
               <div className='header-nav-right-cart-div'>
                 <img src={cart} alt='Cart image' className='header-nav-cart' />
+                {badgeOn ? <div className='header-nav-cart-counter'>{counter}</div> : ''}
               </div>
 
             </div>
