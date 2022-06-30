@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addToCart } from '../../store/cartSlice.js';
+import './CartItem.css';
 
 class CartItem extends React.Component {
   render() {
@@ -25,11 +26,27 @@ class CartItem extends React.Component {
           theAttribute = true;
         }
 
-        attributeList.push(
-          <div className={theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}>
-            {element.value} {theAttribute ? '(!)' : ''}
-          </div>
-        );
+        let htmlElement; 
+        
+        if(attribute.id === 'Color') {
+          htmlElement = (
+            <div 
+              className={theAttribute ? 'cart-item__attributes__list__the-attribute--color cart-item__attributes__list__attribute--color' : 'cart-item__attributes__list__attribute--color'} 
+              style={ {backgroundColor: element.value} }
+            >
+              {theAttribute ? '(!)' : ''}
+            </div>
+          );
+        }
+        else {
+          htmlElement = (
+            <div className={theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}>
+              {element.value} {theAttribute ? '(!)' : ''}
+            </div>
+          );
+        }
+        
+        attributeList.push(htmlElement);
       });
 
       attributes.push(
