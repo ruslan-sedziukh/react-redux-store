@@ -31,9 +31,9 @@ class CartItem extends React.Component {
         if(attribute.id === 'Color') {
           if(theAttribute) {
             htmlElement = (
-              <div className="cart-item__attributes__list__the-attribute-color-container">
+              <div className="cart-item__attributes__list__the-color-attribute-container">
                 <div 
-                  className='cart-item__attributes__list__attribute-color' 
+                  className='cart-item__attributes__list__the-color-attribute-container__color-attribute' 
                   style={ {backgroundColor: element.value} }
                 ></div>
               </div>
@@ -42,7 +42,7 @@ class CartItem extends React.Component {
           else {
             htmlElement = (
               <div 
-                className='cart-item__attributes__list__attribute-color' 
+                className='cart-item__attributes__list__color-attribute' 
                 style={ {backgroundColor: element.value} }
               >
                 {theAttribute ? '(!)' : ''}
@@ -52,8 +52,8 @@ class CartItem extends React.Component {
         }
         else {
           htmlElement = (
-            <div className='cart-item__attributes__list__attribute'>
-              {element.value} {theAttribute ? '(!)' : ''}
+            <div className={theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}>
+              {element.value} 
             </div>
           );
         }
@@ -63,7 +63,7 @@ class CartItem extends React.Component {
 
       attributes.push(
         <div className="cart-item__attributes">
-          <p className="cart-item__attributes__name">{attribute.name}</p>
+          <p className="cart-item__attributes__name">{attribute.name}:</p>
           <div className="cart-item_attributes_list">
             {attributeList}
           </div>
