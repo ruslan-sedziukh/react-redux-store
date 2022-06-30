@@ -15,22 +15,38 @@ class CartItem extends React.Component {
     });
 
     let attributes = [];
+
     product.attributes.forEach(attribute => {
+      let attributeList = [];
+
+      attribute.items.forEach(element => {
+        let theAttribute = false;
+        if (item.attributes[attribute.id].item.id === element.id) {
+          theAttribute = true;
+        }
+
+        attributeList.push(
+          <div className={theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}>
+            {element.value} {theAttribute ? '(!)' : ''}
+          </div>
+        );
+      });
+
       attributes.push(
-        <div className="cart-item-attributes">
-          <p className="cart-item-attributes-name">{attribute.name}</p>
+        <div className="cart-item__attributes">
+          <p className="cart-item__attributes__name">{attribute.name}</p>
           <div className="cart-item-attributes-list">
-            
+            {attributeList}
           </div>
         </div>
       );
     });
 
     return (
-      <div className="cart-item-container">
+      <div className="cart-item">
         <div>
-          <p className="cart-item-name">{product.name} </p>
-          <p className="cart-item-price">{price} </p>
+          <p className="cart-item__name">{product.name} </p>
+          <p className="cart-item__price">{price} </p>
           {attributes}
         </div>
       </div>
