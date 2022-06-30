@@ -10,7 +10,7 @@ class MiniCart extends React.Component {
     let index = 0;
     this.props.cart.forEach(item => {
       items.push(
-        <CartItem index={index} />
+        <CartItem index={index} id={item.id} className='cart-item-container' />
       );
       index ++;
     });

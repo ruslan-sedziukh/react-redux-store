@@ -10,7 +10,7 @@ const options = {
       const index = state.findIndex(element => {
         let match = false;
 
-        if(element.id === action.payload.id && _.isEqual(element.attributes, action.payload.attributes)) {
+        if(element.product.id === action.payload.product.id && _.isEqual(element.attributes, action.payload.attributes)) {
           match = true; 
         }
 
