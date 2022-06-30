@@ -16,7 +16,7 @@ class MiniCart extends React.Component {
     });
 
     return (
-      <div class='mini-cart-container'>
+      <div className='mini-cart-container'>
         <h1>MiniCart</h1>
         {items}
       </div>

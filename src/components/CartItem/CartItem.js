@@ -4,9 +4,8 @@ import { addToCart } from '../../store/cartSlice.js';
 
 class CartItem extends React.Component {
   render() {
-    // let categoryObject = this.props.categories[this.props.cart[this.props.index].category];
-    // console.log(categoryObject);
-    let product = this.props.cart[this.props.index].product;
+    let item = this.props.cart[this.props.index];
+    let product = item.product;
     let price;
 
     product.prices.forEach(element => {
@@ -15,12 +14,24 @@ class CartItem extends React.Component {
       }
     });
 
+    let attributes = [];
+    product.attributes.forEach(attribute => {
+      attributes.push(
+        <div className="cart-item-attributes">
+          <p className="cart-item-attributes-name">{attribute.name}</p>
+          <div className="cart-item-attributes-list">
+            
+          </div>
+        </div>
+      );
+    });
+
     return (
       <div className="cart-item-container">
         <div>
           <p className="cart-item-name">{product.name} </p>
           <p className="cart-item-price">{price} </p>
-          
+          {attributes}
         </div>
       </div>
     );
