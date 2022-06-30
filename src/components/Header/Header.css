@@ -115,18 +115,9 @@
   margin-left: 1.375rem;
 }
 
-/* For CurrencyList */
-
-.header-nav-currency-container {
-  position: relative;
-  transform: scaleX(1);
-}
-
-.header-nav-currency:hover {
+.header-nav-cart:hover {
   cursor: pointer;
 }
-
-/* Cart counter */
 
 .header-nav-right-cart-div {
   position: relative;
@@ -150,5 +141,20 @@
   flex-direction: row;
   justify-content: center;
   vertical-align: middle;
+}
+
+.header-nav-cart-counter:hover {
+  cursor: pointer;
+}
+
+/* For CurrencyList */
+
+.header-nav-currency-container {
+  position: relative;
+  transform: scaleX(1);
+}
+
+.header-nav-currency:hover {
+  cursor: pointer;
 }
 

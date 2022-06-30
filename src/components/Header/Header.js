@@ -153,9 +153,9 @@ class Header extends React.Component {
 
               </div>
 
-              <div className='header-nav-right-cart-div' onClick={this.toggleMiniCart} >
-                <img src={cart} alt='Cart image' className='header-nav-cart' />
-                {badgeOn ? <div className='header-nav-cart-counter'>{counter}</div> : ''}
+              <div className='header-nav-right-cart-div' >
+                <img src={cart} alt='Cart image' className='header-nav-cart' onClick={this.toggleMiniCart} />
+                {badgeOn ? <div className='header-nav-cart-counter' onClick={this.toggleMiniCart}>{counter}</div> : ''}
                 {this.state.miniCart ? <MiniCart /> : ''}
               </div>
 

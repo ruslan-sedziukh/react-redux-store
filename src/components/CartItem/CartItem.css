@@ -1,3 +1,9 @@
+.cart-item_attributes_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .cart-item__attributes__list__the-attribute-color-container {
   width: 1.0625rem;
   height: 1.0625rem;
