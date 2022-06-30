@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-between;
   width: fit-content;
+  font-size: 1rem;
 }
 
 .cart-item__attributes__list__the-color-attribute-container {
@@ -37,6 +38,10 @@
   margin-right: 0.5rem;
   background-color: black;
   color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-item__attributes__list__attribute {
@@ -46,4 +51,9 @@
   padding: 0 0.125rem;
   border: 0.0625rem solid #1D1F22;
   margin-right: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+

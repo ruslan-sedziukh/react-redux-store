@@ -53,7 +53,7 @@ class CartItem extends React.Component {
         else {
           htmlElement = (
             <div className={theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}>
-              {element.value} 
+              {element.value}
             </div>
           );
         }
