@@ -8,13 +8,15 @@ import { connect } from 'react-redux';
 import { getCategories } from '../../store/categoriesSlice.js';
 import { getCurrencies, setCurrency } from '../../store/currenciesSlice.js';
 import CurrencyList from '../CurrencyList/CurrencyList.js';
+import MiniCart from '../MiniCart/MiniCart';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currencyList: false };
+    this.state = { currencyList: false, miniCart: false };
     this.currencyOnClick = this.currencyOnClick.bind(this);
     this.closeList = this.closeList.bind(this);
+    this.toggleMiniCart = this.toggleMiniCart.bind(this);
   }
 
   async getCategories() {
@@ -89,6 +91,15 @@ class Header extends React.Component {
     this.setState({ currencyList: false });
   }
 
+  toggleMiniCart(){
+    if(this.state.miniCart === false) {
+      this.setState({ miniCart: true });
+    }
+    else {
+      this.setState({ miniCart: false });
+    }
+  }
+
   render() {
     const links = [];
 
@@ -143,8 +154,9 @@ class Header extends React.Component {
               </div>
 
               <div className='header-nav-right-cart-div'>
-                <img src={cart} alt='Cart image' className='header-nav-cart' />
+                <img src={cart} alt='Cart image' className='header-nav-cart' onClick={this.toggleMiniCart} />
                 {badgeOn ? <div className='header-nav-cart-counter'>{counter}</div> : ''}
+                {this.state.miniCart ? <MiniCart /> : ''}
               </div>
 
             </div>
