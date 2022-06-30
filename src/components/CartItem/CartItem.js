@@ -29,18 +29,30 @@ class CartItem extends React.Component {
         let htmlElement; 
         
         if(attribute.id === 'Color') {
-          htmlElement = (
-            <div 
-              className={theAttribute ? 'cart-item__attributes__list__the-attribute--color cart-item__attributes__list__attribute--color' : 'cart-item__attributes__list__attribute--color'} 
-              style={ {backgroundColor: element.value} }
-            >
-              {theAttribute ? '(!)' : ''}
-            </div>
-          );
+          if(theAttribute) {
+            htmlElement = (
+              <div className="cart-item__attributes__list__the-attribute-color-container">
+                <div 
+                  className='cart-item__attributes__list__attribute-color' 
+                  style={ {backgroundColor: element.value} }
+                ></div>
+              </div>
+            );
+          }
+          else {
+            htmlElement = (
+              <div 
+                className='cart-item__attributes__list__attribute-color' 
+                style={ {backgroundColor: element.value} }
+              >
+                {theAttribute ? '(!)' : ''}
+              </div>
+            );
+          }
         }
         else {
           htmlElement = (
-            <div className={theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}>
+            <div className='cart-item__attributes__list__attribute'>
               {element.value} {theAttribute ? '(!)' : ''}
             </div>
           );
@@ -52,7 +64,7 @@ class CartItem extends React.Component {
       attributes.push(
         <div className="cart-item__attributes">
           <p className="cart-item__attributes__name">{attribute.name}</p>
-          <div className="cart-item-attributes-list">
+          <div className="cart-item_attributes_list">
             {attributeList}
           </div>
         </div>
