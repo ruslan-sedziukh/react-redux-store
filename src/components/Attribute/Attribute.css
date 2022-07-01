@@ -14,12 +14,14 @@
 .cart-item__attributes__list__the-color-attribute-container__color-attribute {
   min-width: 1rem;
   min-height: 1rem;
+  cursor: pointer;
 }
 
 .cart-item__attributes__list__color-attribute {
   min-width: 1rem;
   min-height: 1rem;
   margin-right: 0.5rem;
+  cursor: pointer;
 }
 
 .cart-item__attributes__list__the-attribute {
@@ -28,12 +30,13 @@
   min-height: 1.5rem;
   padding: 0 0.1875rem;
   margin-right: 0.5rem;
-  background-color: black;
-  color: white;
+  background-color: #1D1F22;
+  color: #FFFFFF;
 
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .cart-item__attributes__list__attribute {
@@ -47,4 +50,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }

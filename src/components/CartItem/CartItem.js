@@ -57,7 +57,9 @@ class CartItem extends React.Component {
         </div>
         <div className="cart-item__right">
           <div className="cart-item__right__amount-container">
-            <button>+</button>
+            <button className="cart-item__right__amount-container__button">+</button>
+            <div>{item.amount}</div>
+            <button className="cart-item__right__amount-container__button">-</button>
           </div>
         </div>
       </div>
