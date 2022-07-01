@@ -11,7 +11,7 @@
 }
 
 .cart-item__left {
-  width: 8.75rem;
+  width: 8.25rem;
 }
 
 /* .cart-item__right {
@@ -24,6 +24,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: 0 0.5rem;
 }
 
 .cart-item__right__amount-container__button {
