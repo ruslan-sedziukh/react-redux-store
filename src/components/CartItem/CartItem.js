@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addToCart } from '../../store/cartSlice.js';
+import { addToCart, changeAttribute } from '../../store/cartSlice.js';
 import './CartItem.css';
+import Attribute from "../Attribute/Attribute.js";
 
 class CartItem extends React.Component {
   render() {
@@ -26,39 +27,15 @@ class CartItem extends React.Component {
           theAttribute = true;
         }
 
-        let htmlElement; 
         
-        if(attribute.id === 'Color') {
-          if(theAttribute) {
-            htmlElement = (
-              <div className="cart-item__attributes__list__the-color-attribute-container">
-                <div 
-                  className='cart-item__attributes__list__the-color-attribute-container__color-attribute' 
-                  style={ {backgroundColor: element.value} }
-                ></div>
-              </div>
-            );
-          }
-          else {
-            htmlElement = (
-              <div 
-                className='cart-item__attributes__list__color-attribute' 
-                style={ {backgroundColor: element.value} }
-              >
-                {theAttribute ? '(!)' : ''}
-              </div>
-            );
-          }
-        }
-        else {
-          htmlElement = (
-            <div className={theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}>
-              {element.value}
-            </div>
-          );
-        }
-        
-        attributeList.push(htmlElement);
+        let attributeItem = (<Attribute 
+          index={this.props.index}
+          attributeId={attribute.id} 
+          theAttribute={theAttribute} 
+          attributeValue={element.value}
+          itemId={element.id}
+        />)
+        attributeList.push(attributeItem); 
       });
 
       attributes.push(
@@ -89,7 +66,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: addToCart
+    addToCart: (payload) => dispatch(addToCart(payload)),
+    changeAttribute: (payload) => dispatch(changeAttribute(payload))
   }
 }
 

@@ -25,6 +25,11 @@ const options = {
       else {
         state[index].amount ++;
       }
+    },
+    changeAttribute: (state, action) => {
+      state[action.payload.index].attributes[action.payload.attribute.id].item = action.payload.attribute.item;
+      // console.log('>>>>> Product id: ');
+      // console.log(action.payload.productId);
     }
   }
 }
@@ -32,4 +37,4 @@ const options = {
 const cartSlice = createSlice(options);
 
 export default cartSlice.reducer;
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, changeAttribute } = cartSlice.actions;
