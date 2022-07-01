@@ -89,6 +89,14 @@ class CartItem extends React.Component {
               onClick={this.minusOne}
             >-</button>
           </div>
+          <div className="cart-item__right__img-div">
+            <div className="cart-item__right__img-div__img-container">
+              <img 
+                src={product.gallery[0]} 
+                className='cart-item__right__img-div__img-container__img'
+              />
+            </div>
+          </div>
         </div>
       </div>
     );
