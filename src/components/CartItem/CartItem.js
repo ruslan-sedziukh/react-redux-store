@@ -50,10 +50,15 @@ class CartItem extends React.Component {
 
     return (
       <div className="cart-item">
-        <div>
+        <div className="cart-item__left">
           <p className="cart-item__name">{product.name} </p>
           <p className="cart-item__price">{price} </p>
           {attributes}
+        </div>
+        <div className="cart-item__right">
+          <div className="cart-item__right__amount-container">
+            <button>+</button>
+          </div>
         </div>
       </div>
     );

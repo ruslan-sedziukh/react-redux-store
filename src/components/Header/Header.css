@@ -28,7 +28,7 @@
   margin: auto;
   width: calc(100% - 202px);
   max-width: 1440px;
-  height: 80;
+  height: 80px;
   z-index: 99;
 }
 

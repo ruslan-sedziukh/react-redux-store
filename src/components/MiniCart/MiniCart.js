@@ -12,13 +12,16 @@ class MiniCart extends React.Component {
       items.push(
         <CartItem index={index} id={item.product.id} className='cart-item-container' />
       );
-      index ++;
+      index++;
     });
 
     return (
-      <div className='mini-cart-container'>
-        <h1>MiniCart</h1>
-        {items}
+      <div>
+        <div className='mini-cart-container'>
+          <h1>MiniCart</h1>
+          {items}
+        </div>
+        <div className='mini-cart-background'></div>
       </div>
     );
   }
