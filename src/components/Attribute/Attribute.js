@@ -18,7 +18,6 @@ class Attribute extends React.Component {
       }
     };
     this.props.changeAttribute(payload);
-    // console.log('click');
   }
 
   render() {
