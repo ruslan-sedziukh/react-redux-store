@@ -12,6 +12,8 @@
 
 .cart-item__left {
   width: 8.25rem;
+  height: 11.25rem;
+  overflow: scroll;
 }
 
 .cart-item__right {
@@ -45,15 +47,17 @@
 
 .cart-item__right__img-div {
   display: flex;
-  min-width: 7.5625rem;
-  height: 11.25rem;
+  height: 100%;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .cart-item__right__img-div__img-container {
-  display: inline-block;
+  display: flex;
+  width: 7.5625rem;
+  height: 11.25rem;
+  align-items: center;
+  justify-content: center;
 }
 
 .cart-item__right__img-div__img-container__img {
