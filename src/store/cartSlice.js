@@ -30,6 +30,14 @@ const options = {
       state[action.payload.index].attributes[action.payload.attribute.id].item = action.payload.attribute.item;
       // console.log('>>>>> Product id: ');
       // console.log(action.payload.productId);
+    },
+    changeAmount: (state, action) => {
+      if(action.payload.action === '+'){
+        state[action.payload.index].amount ++;
+      } 
+      else if (action.payload.action === '-'){
+        state[action.payload.index].amount --;
+      }
     }
   }
 }
@@ -37,4 +45,4 @@ const options = {
 const cartSlice = createSlice(options);
 
 export default cartSlice.reducer;
-export const { addToCart, changeAttribute } = cartSlice.actions;
+export const { addToCart, changeAttribute, changeAmount } = cartSlice.actions;

@@ -1,10 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addToCart, changeAttribute } from '../../store/cartSlice.js';
+import { addToCart, changeAttribute, changeAmount } from '../../store/cartSlice.js';
 import './CartItem.css';
 import Attribute from "../Attribute/Attribute.js";
 
 class CartItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.plusOne = this.plusOne.bind(this);
+    this.minusOne = this.minusOne.bind(this);
+  }
+
+  plusOne(){
+    const payload = {
+      index: this.props.index,
+      action: '+'
+    };
+    this.props.changeAmount(payload);
+  }
+
+  minusOne(){
+    const payload = {
+      index: this.props.index,
+      action: '-'
+    };
+    this.props.changeAmount(payload);
+  }
+
   render() {
     let item = this.props.cart[this.props.index];
     let product = item.product;
@@ -57,9 +79,15 @@ class CartItem extends React.Component {
         </div>
         <div className="cart-item__right">
           <div className="cart-item__right__amount-container">
-            <button className="cart-item__right__amount-container__button">+</button>
+            <button 
+              className="cart-item__right__amount-container__button"
+              onClick={this.plusOne}
+            >+</button>
             <div>{item.amount}</div>
-            <button className="cart-item__right__amount-container__button">-</button>
+            <button 
+              className="cart-item__right__amount-container__button"
+              onClick={this.minusOne}
+            >-</button>
           </div>
         </div>
       </div>
@@ -74,7 +102,8 @@ function mapStateToProps(state) {
 const mapDispatchToProps = (dispatch) => {
   return {
     addToCart: (payload) => dispatch(addToCart(payload)),
-    changeAttribute: (payload) => dispatch(changeAttribute(payload))
+    changeAttribute: (payload) => dispatch(changeAttribute(payload)),
+    changeAmount: (payload) => dispatch(changeAmount(payload))
   }
 }
 
