@@ -14,8 +14,8 @@
 }
 
 .cart-item__attributes__list__the-color-attribute-container__color-attribute {
-  min-width: 1rem;
-  min-height: 1rem;
+  min-width: 0.9375rem;
+  min-height: 0.9375rem;
   cursor: pointer;
 }
 
