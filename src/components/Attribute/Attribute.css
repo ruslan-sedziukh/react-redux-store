@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
 .cart-item__attributes__list__the-color-attribute-container {
   width: 1.25rem;
   height: 1.25rem;
@@ -37,6 +39,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
 }
 
 .cart-item__attributes__list__attribute {
@@ -51,4 +58,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #1D1F22;
 }
