@@ -16,6 +16,9 @@
   height: 11.875rem;
   margin-right: 0.5rem;
   overflow: auto;
+
+  box-sizing: border-box;
+  padding-bottom: 0.0625rem;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
