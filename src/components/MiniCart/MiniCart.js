@@ -21,7 +21,10 @@ class MiniCart extends React.Component {
     return (
       <div>
         <div className='mini-cart-container'>
-          <div className='mini-cart-container__cart-head'><span>My Bag</span><span>, {amount} items</span></div>
+          <div className='mini-cart-container__cart-head'>
+            <span className='mini-cart-container__cart-head__bold'>My Bag</span>
+            <span className='mini-cart-container__cart-head__light'>, {amount} items</span>
+          </div>
           {items}
         </div>
         <div className='mini-cart-background'></div>
