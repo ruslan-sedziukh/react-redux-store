@@ -67,7 +67,9 @@ class ProductPreview extends React.Component {
     return(
       <div className="product-preview" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
         <div className="product-preview-img-container">
-          <img className="product-preview-img" src={src} />
+          <div>
+            <img className="product-preview-img" src={src} />
+          </div>
           <div className="product-preview-cart-container" onClick={this.cartClick}>
             <img className="product-preview-cart" src={cart} />
           </div>

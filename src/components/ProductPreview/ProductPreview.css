@@ -11,11 +11,13 @@
   vertical-align: middle;
   justify-content: center; 
   position: relative;
+
 }
 
 .product-preview-img {
   max-width: 22.25rem;
   max-height: 22.25rem;
+  height: auto;
 }
 
 .product-preview-name {
