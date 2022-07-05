@@ -9,6 +9,8 @@ class MiniCart extends React.Component {
     let items = [];
     let index = 0;
     let amount = 0;
+    let total = 0;
+    const currencySymbol = this.props.currencies.currency.symbol;
 
     this.props.cart.forEach(item => {
       items.push(
@@ -16,6 +18,16 @@ class MiniCart extends React.Component {
       );
       index++;
       amount = amount + item.amount;
+
+      let price;
+
+      item.product.prices.forEach(element => {
+        if(element.currency.symbol === currencySymbol) {
+          price = element.amount;
+        }
+      });
+
+      total = total + (item.amount * price);
     });
 
     return (
@@ -26,6 +38,10 @@ class MiniCart extends React.Component {
             <span className='mini-cart-container__cart-head__light'>, {amount} items</span>
           </div>
           {items}
+          <div className='mini-cart-container__total'>
+            <span>Total</span>
+            <span>{currencySymbol}{Math.round(total * 100) / 100}</span>
+          </div>
         </div>
         <div className='mini-cart-background'></div>
       </div>
@@ -34,7 +50,7 @@ class MiniCart extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { cart: state.cart };
+  return { cart: state.cart, currencies: state.currencies };
 }
 
 export default connect(mapStateToProps)(MiniCart);

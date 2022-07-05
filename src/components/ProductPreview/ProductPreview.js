@@ -43,7 +43,12 @@ class ProductPreview extends React.Component {
 
   cartClick() {
     let product = this.props.categories[this.props.category]['products'][this.props.index];
-    let cartPayload = { category: this.props.category, product: product, attributes: {} };
+
+    let cartPayload = { 
+      category: this.props.category, 
+      product: product, 
+      attributes: {}
+    };
 
     if(product.attributes) {
       product.attributes.forEach(attribute => {
