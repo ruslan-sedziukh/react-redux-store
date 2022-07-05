@@ -63,6 +63,7 @@
   justify-content: space-between;
   align-items: center;
   margin: 0 0.5rem;
+  font-size: 1rem;
 }
 
 .cart-item__right__amount-container__button {

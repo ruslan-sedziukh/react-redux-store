@@ -28,12 +28,14 @@ class CartItem extends React.Component {
   }
 
   render() {
-    let item = this.props.cart[this.props.index];
-    let product = item.product;
+    const item = this.props.cart[this.props.index];
+    const product = item.product;
+    const currencyLabel = this.props.currencies.currency.label;
+    const currencySymbol = this.props.currencies.currency.symbol;
     let price;
 
     product.prices.forEach(element => {
-      if(element.currency.label === this.props.currencies.currency.label) {
+      if(element.currency.label === currencyLabel) {
         price = element.amount;
       }
     });
@@ -74,7 +76,7 @@ class CartItem extends React.Component {
       <div className="cart-item">
         <div className="cart-item__left">
           <p className="cart-item__name">{product.name} </p>
-          <p className="cart-item__price">{price} </p>
+          <p className="cart-item__price">{currencySymbol}{price}</p>
           {attributes}
         </div>
         <div className="cart-item__right">
