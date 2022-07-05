@@ -11,6 +11,7 @@
   align-items: center;
 
   margin-right: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .cart-item__attributes__list__the-color-attribute-container__color-attribute {
@@ -24,6 +25,7 @@
   min-height: 1rem;
   margin-right: 0.5rem;
   cursor: pointer;
+  margin-top: 0.5rem;
 }
 
 .cart-item__attributes__list__the-attribute {
@@ -34,6 +36,7 @@
   margin-right: 0.5rem;
   background-color: #1D1F22;
   color: #FFFFFF;
+  margin-top: 0.5rem;
 
   display: flex;
   align-items: center;
@@ -53,6 +56,7 @@
   padding: 0 0.1875rem;
   border: 0.0625rem solid #1D1F22;
   margin-right: 0.5rem;
+  margin-top: 0.5rem;
 
   display: flex;
   align-items: center;
