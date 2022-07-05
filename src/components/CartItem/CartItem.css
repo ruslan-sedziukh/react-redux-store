@@ -13,23 +13,8 @@
 
 .cart-item__left {
   width: 8.25rem;
-  height: 11.875rem;
   margin-right: 0.5rem;
-  overflow: auto;
-
   box-sizing: border-box;
-  padding-bottom: 0.0625rem;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.cart-item__left::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.cart-item__left {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
 }
 
 .cart-item__name {
@@ -105,7 +90,7 @@
 .cart-item__right__img-div__img-container {
   display: flex;
   width: 7.5625rem;
-  height: 11.875rem;
+  max-height: 11.875rem;
   align-items: center;
   justify-content: center;
 }
