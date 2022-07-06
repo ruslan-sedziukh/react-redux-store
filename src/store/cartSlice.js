@@ -10,20 +10,20 @@ const options = {
       const index = state.findIndex(element => {
         let match = false;
 
-        if(element.product.id === action.payload.product.id && _.isEqual(element.attributes, action.payload.attributes)) {
-          match = true; 
+        if (element.product.id === action.payload.product.id && _.isEqual(element.attributes, action.payload.attributes)) {
+          match = true;
         }
 
         return match;
       });
 
-      if(index === -1){
+      if (index === -1) {
         let payload = action.payload;
         payload.amount = 1;
         state.push(payload);
-      } 
+      }
       else {
-        state[index].amount ++;
+        state[index].amount++;
       }
     },
     changeAttribute: (state, action) => {
@@ -32,11 +32,25 @@ const options = {
       // console.log(action.payload.productId);
     },
     changeAmount: (state, action) => {
-      if(action.payload.action === '+'){
-        state[action.payload.index].amount ++;
-      } 
-      else if (action.payload.action === '-'){
-        state[action.payload.index].amount --;
+      if (action.payload.action === '+') {
+        state[action.payload.index].amount++;
+      }
+      else if (action.payload.action === '-') {
+        if (state[action.payload.index].amount <= 1) {
+          console.log('!!! >>>>>>>>>>>: Zero detected');
+
+          const newState = [];
+          for(let i = 0; i < state.length; i++) {
+            if(i !== action.payload.index) {
+              newState.push(state[i]);
+            }
+          } 
+          
+          return newState;
+        }
+        else {
+          state[action.payload.index].amount--;
+        }
       }
     }
   }
