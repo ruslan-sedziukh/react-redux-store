@@ -6,6 +6,17 @@ import { Link } from 'react-router-dom';
 
 
 class MiniCart extends React.Component {
+  componentDidMount() {
+    let html = document.getElementsByTagName('html');
+    html[0].addEventListener('click', this.props.closeCart);
+  }
+
+  componentWillUnmount() {
+    let html = document.getElementsByTagName('html');
+    html[0].removeEventListener('click', this.props.closeCart);
+    this.props.toggleShouldCloseCart();
+  }
+
   render() {
     let items = [];
     let index = 0;
