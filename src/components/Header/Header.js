@@ -85,6 +85,10 @@ class Header extends React.Component {
     else {
       this.setState({ currencyList: false });
     }
+
+    if(this.state.miniCart) {
+      this.setState({ miniCart: false });
+    }
   }
 
   closeList() {
@@ -97,6 +101,10 @@ class Header extends React.Component {
     }
     else {
       this.setState({ miniCart: false });
+    }
+
+    if(this.state.currencyList) {
+      this.setState({ currencyList: false });
     }
   }
 
