@@ -13,10 +13,13 @@ import MiniCart from '../MiniCart/MiniCart';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currencyList: false, miniCart: false };
+    this.state = { currencyList: false, miniCart: false, shouldCloseCart: false };
     this.currencyOnClick = this.currencyOnClick.bind(this);
     this.closeList = this.closeList.bind(this);
     this.toggleMiniCart = this.toggleMiniCart.bind(this);
+
+    // This is for closing cart when clicking outside of it 
+    this.closeCart = this.closeCart.bind(this);
   }
 
   async getCategories() {
@@ -95,9 +98,31 @@ class Header extends React.Component {
     this.setState({ currencyList: false });
   }
 
+  // This is for closing cart when clicking outside of it 
+  closeCart(event) {
+    if(this.state.shouldCloseCart) {
+      if(event.target.class !== 'mini-cart-container'){
+        console.log('click');
+        this.setState({ miniCart: false });
+        // event.target.removeEventListener('click', this.closeCart);
+        this.setState({ shouldCloseCart: false });
+      }
+    }
+    else {
+      if(this.state.miniCart) {
+        console.log('clack');
+        this.setState({ shouldCloseCart: true });
+      }
+    }
+  }
+
   toggleMiniCart(){
     if(this.state.miniCart === false) {
       this.setState({ miniCart: true });
+
+      let html = document.getElementsByTagName('html');
+      html[0].addEventListener('click', this.closeCart);
+      // this.setState({ shouldCloseCart: true });
     }
     else {
       this.setState({ miniCart: false });
