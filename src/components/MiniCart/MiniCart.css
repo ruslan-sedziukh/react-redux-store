@@ -13,7 +13,7 @@
   box-sizing: border-box;
   width: 20.3125rem;
   padding: 1.875rem 1rem 0 1rem;
-  height: 30rem;
+  max-height: 30rem;
   overflow: auto;
   color: #1D1F22;
 }
@@ -60,4 +60,44 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+}
+
+.mini-cart-container__buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.mini-cart-container__buttons-container__view-bag {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #1D1F22;
+  width: 8.75rem;
+  height: 2.625rem;
+  border: solid 0.0625rem #1D1F22;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.mini-cart-container__buttons-container__checkout {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #FFF;
+
+  width: 8.75rem;
+  height: 2.625rem;
+  box-sizing: border-box;
+  background-color: #5ECE7B;
+
+  cursor: pointer;
 }

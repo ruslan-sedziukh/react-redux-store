@@ -2,6 +2,7 @@ import React from 'react';
 import './MiniCart.css';
 import CartItem from '../CartItem/CartItem';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 class MiniCart extends React.Component {
@@ -41,6 +42,10 @@ class MiniCart extends React.Component {
           <div className='mini-cart-container__total'>
             <span>Total</span>
             <span>{currencySymbol}{Math.round(total * 100) / 100}</span>
+          </div>
+          <div className='mini-cart-container__buttons-container'>
+            <Link className='mini-cart-container__buttons-container__view-bag' to='/cart'>View bag</Link>
+            <div className='mini-cart-container__buttons-container__checkout' onClick={() => window.alert('Add checkout!')}>Checkout</div>
           </div>
         </div>
         <div className='mini-cart-background'></div>
