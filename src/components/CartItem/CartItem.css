@@ -76,6 +76,9 @@
   width: 1.5rem;
   height: 1.5rem;
   cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-item__right__amount-container__button:active {

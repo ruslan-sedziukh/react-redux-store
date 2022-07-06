@@ -81,15 +81,15 @@ class CartItem extends React.Component {
         </div>
         <div className="cart-item__right">
           <div className="cart-item__right__amount-container">
-            <button 
+            <div 
               className="cart-item__right__amount-container__button"
               onClick={this.plusOne}
-            >+</button>
+            >+</div>
             <div>{item.amount}</div>
-            <button 
+            <div 
               className="cart-item__right__amount-container__button"
               onClick={this.minusOne}
-            >-</button>
+            >-</div>
           </div>
           <div className="cart-item__right__img-div">
             <div className="cart-item__right__img-div__img-container">
