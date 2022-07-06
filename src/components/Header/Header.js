@@ -130,7 +130,20 @@ class Header extends React.Component {
   closeCart(event) {
     console.log('click');
     if(this.state.shouldCloseCart) {
-      this.setState({ miniCart: false });
+      // Need to add 
+      let isOutside = true;
+      let element = event.target;
+      while(element) {
+        if(element.className === 'mini-cart-container') {
+          isOutside = false;
+          break;
+        }
+        element = element.parentNode;
+      }
+
+      if(isOutside) {
+        this.setState({ miniCart: false });
+      }
     }
     else {
       this.setState({ shouldCloseCart: true });
