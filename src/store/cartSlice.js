@@ -38,9 +38,15 @@ const options = {
       for(let i = 0; i < state.length; i++) {
         if(i !== action.payload.index) {
           if(_.isEqual(newState[action.payload.index].attributes, newState[i].attributes)) {
-            newState[i].amount = newState[i].amount + newState[action.payload.index].amount
+            if(i < action.payload.index) {
+              newState[i].amount = newState[i].amount + newState[action.payload.index].amount;
+              stackIndex = action.payload.index;
+            }
+            else {
+              newState[action.payload.index].amount = newState[i].amount + newState[action.payload.index].amount;
+              stackIndex = i;
+            }
             shouldStack = true;
-            stackIndex = i;
           }
         }
       }
@@ -48,7 +54,7 @@ const options = {
       if(shouldStack) {
         let veryNewState = [];
           for(let i = 0; i < newState.length; i++) {
-            if(i !== action.payload.index) {
+            if(i !== stackIndex) {
               veryNewState.push(newState[i]);
             }
           }; 
