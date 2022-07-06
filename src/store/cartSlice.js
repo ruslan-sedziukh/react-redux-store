@@ -27,9 +27,36 @@ const options = {
       }
     },
     changeAttribute: (state, action) => {
-      state[action.payload.index].attributes[action.payload.attribute.id].item = action.payload.attribute.item;
-      // console.log('>>>>> Product id: ');
-      // console.log(action.payload.productId);
+      let newState = JSON.parse(JSON.stringify(state));
+      newState[action.payload.index].attributes[action.payload.attribute.id].item = action.payload.attribute.item;
+      
+      // Stack items with same attributes
+      let shouldStack = false;
+      let stackIndex;
+
+      // Chech if there is item with such attributes and change its ammount
+      for(let i = 0; i < state.length; i++) {
+        if(i !== action.payload.index) {
+          if(_.isEqual(newState[action.payload.index].attributes, newState[i].attributes)) {
+            newState[i].amount = newState[i].amount + newState[action.payload.index].amount
+            shouldStack = true;
+            stackIndex = i;
+          }
+        }
+      }
+
+      if(shouldStack) {
+        let veryNewState = [];
+          for(let i = 0; i < newState.length; i++) {
+            if(i !== action.payload.index) {
+              veryNewState.push(newState[i]);
+            }
+          }; 
+          return veryNewState;
+      } 
+      else {
+        return newState;
+      }
     },
     changeAmount: (state, action) => {
       if (action.payload.action === '+') {
@@ -37,15 +64,12 @@ const options = {
       }
       else if (action.payload.action === '-') {
         if (state[action.payload.index].amount <= 1) {
-          console.log('!!! >>>>>>>>>>>: Zero detected');
-
           const newState = [];
           for(let i = 0; i < state.length; i++) {
             if(i !== action.payload.index) {
               newState.push(state[i]);
             }
           } 
-          
           return newState;
         }
         else {
