@@ -27,11 +27,11 @@ class Attribute extends React.Component {
       if (this.props.theAttribute) {
         htmlElement = (
           <div
-            className="cart-item__attributes__list__the-color-attribute-container"
+            className="the-color-attribute-container"
             onClick={this.onClick}
           >
             <div
-              className='cart-item__attributes__list__the-color-attribute-container__color-attribute'
+              className='the-color-attribute-container__color-attribute'
               style={{ backgroundColor: this.props.attributeValue }}
             ></div>
           </div>
@@ -40,7 +40,7 @@ class Attribute extends React.Component {
       else {
         htmlElement = (
           <div
-            className='cart-item__attributes__list__color-attribute'
+            className='color-attribute'
             style={{ backgroundColor: this.props.attributeValue }}
             onClick={this.onClick}
           ></div>
@@ -51,7 +51,7 @@ class Attribute extends React.Component {
       htmlElement = (
         <label>
           <div
-            className={this.props.theAttribute ? 'cart-item__attributes__list__the-attribute' : 'cart-item__attributes__list__attribute'}
+            className={this.props.theAttribute ? 'the-attribute' : 'attribute'}
             onClick={this.onClick}
           >
             {this.props.attributeValue}

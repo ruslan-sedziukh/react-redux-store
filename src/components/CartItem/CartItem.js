@@ -63,9 +63,9 @@ class CartItem extends React.Component {
       });
 
       attributes.push(
-        <div className="cart-item__attributes">
-          <p className="cart-item__attributes__name">{attribute.name}:</p>
-          <div className="cart-item_attributes_list">
+        <div className="cart-item-mini__attributes">
+          <p className="cart-item-mini__attributes__name">{attribute.name}:</p>
+          <div className="cart-item-mini_attributes_list">
             {attributeList}
           </div>
         </div>
@@ -73,29 +73,29 @@ class CartItem extends React.Component {
     });
 
     return (
-      <div className="cart-item">
-        <div className="cart-item__left">
-          <p className="cart-item__name">{product.name} </p>
-          <p className="cart-item__price">{currencySymbol}{price}</p>
+      <div className="cart-item-mini">
+        <div className="cart-item-mini__left">
+          <p className="cart-item-mini__name">{product.name} </p>
+          <p className="cart-item-mini__price">{currencySymbol}{price}</p>
           {attributes}
         </div>
-        <div className="cart-item__right">
-          <div className="cart-item__right__amount-container">
+        <div className="cart-item-mini__right">
+          <div className="cart-item-mini__right__amount-container">
             <div 
-              className="cart-item__right__amount-container__button"
+              className="cart-item-mini__right__amount-container__button"
               onClick={this.plusOne}
             >+</div>
             <div>{item.amount}</div>
             <div 
-              className="cart-item__right__amount-container__button"
+              className="cart-item-mini__right__amount-container__button"
               onClick={this.minusOne}
             >-</div>
           </div>
-          <div className="cart-item__right__img-div">
-            <div className="cart-item__right__img-div__img-container">
+          <div className="cart-item-mini__right__img-div">
+            <div className="cart-item-mini__right__img-div__img-container">
               <img 
                 src={product.gallery[0]} 
-                className='cart-item__right__img-div__img-container__img'
+                className='cart-item-mini__right__img-div__img-container__img'
               />
             </div>
           </div>

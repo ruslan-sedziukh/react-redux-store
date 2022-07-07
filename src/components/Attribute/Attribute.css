@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
-.cart-item__attributes__list__the-color-attribute-container {
+.the-color-attribute-container {
   width: 1.25rem;
   height: 1.25rem;
   border: 0.0625rem solid #5ECE7B;
@@ -14,13 +14,13 @@
   margin-top: 0.5rem;
 }
 
-.cart-item__attributes__list__the-color-attribute-container__color-attribute {
+.the-color-attribute-container__color-attribute {
   min-width: 0.9375rem;
   min-height: 0.9375rem;
   cursor: pointer;
 }
 
-.cart-item__attributes__list__color-attribute {
+.color-attribute {
   min-width: 1rem;
   min-height: 1rem;
   margin-right: 0.5rem;
@@ -28,7 +28,7 @@
   margin-top: 0.5rem;
 }
 
-.cart-item__attributes__list__the-attribute {
+.the-attribute {
   box-sizing: border-box;
   min-width: 1.5rem;
   min-height: 1.5rem;
@@ -49,7 +49,7 @@
   font-size: 0.875rem;
 }
 
-.cart-item__attributes__list__attribute {
+.attribute {
   box-sizing: border-box;
   min-width: 1.5rem;
   min-height: 1.5rem;
