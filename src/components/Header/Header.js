@@ -237,7 +237,7 @@ class Header extends React.Component {
                 <img src={cart} alt='Cart image' className='header-nav-cart' onClick={this.toggleMiniCart} />
                 {badgeOn ? <div className='header-nav-cart-counter' onClick={this.toggleMiniCart}>{counter}</div> : ''}
               </div>
-              {this.state.miniCart ? <Cart isMini={true} closeCartOnClickOutside={this.closeCartOnClickOutside} toggleShouldCloseCart={this.toggleShouldCloseCart} /> : ''}
+              {this.state.miniCart ? <Cart isMini={true} closeCartOnClickOutside={this.closeCartOnClickOutside} toggleShouldCloseCart={this.toggleShouldCloseCart} toggleMiniCart={this.toggleMiniCart} /> : ''}
 
             </div>
 

@@ -72,7 +72,7 @@ class Cart extends React.Component {
             <span>{currencySymbol}{Math.round(total * 100) / 100}</span>
           </div>
           <div className='mini-cart-container__buttons-container'>
-            <Link className='mini-cart-container__buttons-container__view-bag' to='/cart'>View bag</Link>
+            <Link className='mini-cart-container__buttons-container__view-bag' to='/cart' onClick={this.props.toggleMiniCart}>View bag</Link>
             <div className='mini-cart-container__buttons-container__checkout' onClick={() => window.alert('Add checkout!')}>Checkout</div>
           </div>
         </div>
