@@ -8,12 +8,12 @@ import { Link } from 'react-router-dom';
 class MiniCart extends React.Component {
   componentDidMount() {
     let html = document.getElementsByTagName('html');
-    html[0].addEventListener('click', this.props.closeCart);
+    html[0].addEventListener('click', this.props.closeCartOnClickOutside);
   }
 
   componentWillUnmount() {
     let html = document.getElementsByTagName('html');
-    html[0].removeEventListener('click', this.props.closeCart);
+    html[0].removeEventListener('click', this.props.closeCartOnClickOutside);
     this.props.toggleShouldCloseCart();
   }
 

@@ -5,6 +5,18 @@ import { setCurrency } from '../../store/currenciesSlice.js';
 import CurrencyItem from '../CurrencyItem/CurrencyItem';
 
 class CurrencyList extends React.Component {
+  componentDidMount() {
+    let html = document.getElementsByTagName('html');
+    html[0].addEventListener('click', this.props.closeCurrencyListOnClickOutside);
+    console.log('CurrencyList did mount');
+  }
+
+  componentWillUnmount() {
+    let html = document.getElementsByTagName('html');
+    html[0].removeEventListener('click', this.props.closeCurrencyListOnClickOutside);
+    this.props.toggleShouldCloseCurrencyList();
+  }
+
   render() {
     const currencies = [];
 

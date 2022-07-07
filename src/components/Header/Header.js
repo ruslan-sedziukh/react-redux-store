@@ -13,14 +13,21 @@ import MiniCart from '../MiniCart/MiniCart';
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currencyList: false, miniCart: false, shouldCloseCart: false, count: 0 };
+    
+    this.state = { 
+      currencyList: false, 
+      miniCart: false, 
+      shouldCloseCart: false, 
+      shouldCloseCurrencyList: false
+    };
+
     this.currencyOnClick = this.currencyOnClick.bind(this);
     this.closeList = this.closeList.bind(this);
     this.toggleMiniCart = this.toggleMiniCart.bind(this);
-
-    // This is for closing cart when clicking outside of it 
-    this.closeCart = this.closeCart.bind(this);
+    this.closeCartOnClickOutside = this.closeCartOnClickOutside.bind(this);
     this.toggleShouldCloseCart = this.toggleShouldCloseCart.bind(this);
+    this.closeCurrencyListOnClickOutside = this.closeCurrencyListOnClickOutside.bind(this);
+    this.toggleShouldCloseCurrencyList = this.toggleShouldCloseCurrencyList.bind(this);
   }
 
   async getCategories() {
@@ -99,23 +106,35 @@ class Header extends React.Component {
     this.setState({ currencyList: false });
   }
 
-  // This is for closing cart when clicking outside of it 
-  // closeCart(event) {
-  //   if(this.state.shouldCloseCart) {
-  //     if(event.target.class !== 'mini-cart-container'){
-  //       console.log('click');
-  //       this.setState({ miniCart: false });
-  //       // event.target.removeEventListener('click', this.closeCart);
-  //       this.setState({ shouldCloseCart: false });
-  //     }
-  //   }
-  //   else {
-  //     if(this.state.miniCart) {
-  //       console.log('clack');
-  //       this.setState({ shouldCloseCart: true });
-  //     }
-  //   }
-  // }
+  closeCurrencyListOnClickOutside(event) {
+    if(this.state.shouldCloseCurrencyList) {
+      let isOutside = true;
+      let element = event.target;
+      while(element) {
+        if(element.className === 'currency-list-container') {
+          isOutside = false;
+          break;
+        }
+        element = element.parentNode;
+      }
+
+      if(isOutside) {
+        this.setState({ currencyList: false });
+      }
+    }
+    else {
+      this.setState({ shouldCloseCurrencyList: true });
+    }
+  }
+
+  toggleShouldCloseCurrencyList() {
+    if(this.state.shouldCloseCurrencyList) {
+      this.setState({ shouldCloseCurrencyList: false });
+    }
+    else {
+      this.setState({ shouldCloseCurrencyList: true });
+    }
+  }
 
   toggleShouldCloseCart() {
     if(this.state.shouldCloseCart) {
@@ -127,10 +146,8 @@ class Header extends React.Component {
   }
 
   // Function to close MiniCart when click is made outside 
-  closeCart(event) {
-    console.log('click');
+  closeCartOnClickOutside(event) {
     if(this.state.shouldCloseCart) {
-      // Need to add 
       let isOutside = true;
       let element = event.target;
       while(element) {
@@ -148,7 +165,6 @@ class Header extends React.Component {
     else {
       this.setState({ shouldCloseCart: true });
     }
-    
   }
 
   toggleMiniCart(){
@@ -213,7 +229,7 @@ class Header extends React.Component {
                   <img src={arrow} className={arrowClass} />
                 </div>
 
-                {this.state.currencyList ? <CurrencyList closeList={this.closeList} /> : ''}
+                {this.state.currencyList ? <CurrencyList closeList={this.closeList} closeCurrencyListOnClickOutside={this.closeCurrencyListOnClickOutside} toggleShouldCloseCurrencyList={this.toggleShouldCloseCurrencyList}/> : ''}
 
               </div>
 
@@ -221,7 +237,7 @@ class Header extends React.Component {
                 <img src={cart} alt='Cart image' className='header-nav-cart' onClick={this.toggleMiniCart} />
                 {badgeOn ? <div className='header-nav-cart-counter' onClick={this.toggleMiniCart}>{counter}</div> : ''}
               </div>
-              {this.state.miniCart ? <MiniCart closeCart={this.closeCart} toggleShouldCloseCart={this.toggleShouldCloseCart}/> : ''}
+              {this.state.miniCart ? <MiniCart closeCartOnClickOutside={this.closeCartOnClickOutside} toggleShouldCloseCart={this.toggleShouldCloseCart} /> : ''}
 
             </div>
 
