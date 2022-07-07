@@ -1,11 +1,11 @@
 import React from 'react';
-import './MiniCart.css';
+import './Cart.css';
 import CartItem from '../CartItem/CartItem';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-class MiniCart extends React.Component {
+class Cart extends React.Component {
   componentDidMount() {
     let html = document.getElementsByTagName('html');
     html[0].addEventListener('click', this.props.closeCartOnClickOutside);
@@ -69,4 +69,4 @@ function mapStateToProps(state) {
   return { cart: state.cart, currencies: state.currencies };
 }
 
-export default connect(mapStateToProps)(MiniCart);
+export default connect(mapStateToProps)(Cart);

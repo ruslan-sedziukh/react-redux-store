@@ -8,12 +8,12 @@ import { connect } from 'react-redux';
 import { getCategories } from '../../store/categoriesSlice.js';
 import { getCurrencies, setCurrency } from '../../store/currenciesSlice.js';
 import CurrencyList from '../CurrencyList/CurrencyList.js';
-import MiniCart from '../MiniCart/MiniCart';
+import Cart from '../Cart/Cart.js';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = { 
       currencyList: false, 
       miniCart: false, 
@@ -237,7 +237,7 @@ class Header extends React.Component {
                 <img src={cart} alt='Cart image' className='header-nav-cart' onClick={this.toggleMiniCart} />
                 {badgeOn ? <div className='header-nav-cart-counter' onClick={this.toggleMiniCart}>{counter}</div> : ''}
               </div>
-              {this.state.miniCart ? <MiniCart closeCartOnClickOutside={this.closeCartOnClickOutside} toggleShouldCloseCart={this.toggleShouldCloseCart} /> : ''}
+              {this.state.miniCart ? <Cart closeCartOnClickOutside={this.closeCartOnClickOutside} toggleShouldCloseCart={this.toggleShouldCloseCart} /> : ''}
 
             </div>
 
