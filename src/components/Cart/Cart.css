@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+
+/*==============================*/
+/* ===== Mini-cart styles ===== */
+
 .mini-cart-container {
   position: fixed;
   font-size: 1rem;
@@ -38,7 +42,6 @@
   background-color: rgba(57, 55, 72, 0.22);
   z-index: 99;
 }
-
 
 
 .mini-cart-container__cart-head {
@@ -101,3 +104,6 @@
 
   cursor: pointer;
 }
+
+/*==============================*/
+/* ===== Big cart styles ===== */

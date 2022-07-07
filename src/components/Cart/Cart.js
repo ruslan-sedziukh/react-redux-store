@@ -7,14 +7,18 @@ import { Link } from 'react-router-dom';
 
 class Cart extends React.Component {
   componentDidMount() {
-    let html = document.getElementsByTagName('html');
-    html[0].addEventListener('click', this.props.closeCartOnClickOutside);
+    if(this.props.isMini) {
+      let html = document.getElementsByTagName('html');
+      html[0].addEventListener('click', this.props.closeCartOnClickOutside);
+    }
   }
 
   componentWillUnmount() {
-    let html = document.getElementsByTagName('html');
-    html[0].removeEventListener('click', this.props.closeCartOnClickOutside);
-    this.props.toggleShouldCloseCart();
+    if(this.props.isMini) {
+      let html = document.getElementsByTagName('html');
+      html[0].removeEventListener('click', this.props.closeCartOnClickOutside);
+      this.props.toggleShouldCloseCart();
+    }
   }
 
   render() {
@@ -22,7 +26,7 @@ class Cart extends React.Component {
     let index = 0;
     let amount = 0;
     let total = 0;
-    const currencySymbol = this.props.currencies.currency.symbol;
+    const currencySymbol = this.props.currencies.currency ? this.props.currencies.currency.symbol : '';
 
     this.props.cart.forEach(item => {
       items.push(
