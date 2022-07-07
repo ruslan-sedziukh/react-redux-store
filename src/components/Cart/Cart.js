@@ -3,6 +3,7 @@ import './Cart.css';
 import CartItem from '../CartItem/CartItem';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
 
 
 class Cart extends React.Component {
@@ -46,13 +47,25 @@ class Cart extends React.Component {
       total = total + (item.amount * price);
     });
 
+
+    // Mini and bige elements
+    const miniCartHead = (
+      <div className='mini-cart-container__cart-head'>
+        <span className='mini-cart-container__cart-head__bold'>My Bag</span>
+        <span className='mini-cart-container__cart-head__light'>, {amount} items</span>
+      </div>
+    );
+
+    const bigCartHead = (
+      <div className='cart-container_head'>
+        <h1 className='cart-container_head_h1'>Cart</h1>
+      </div>
+    );
+
     return (
       <div>
-        <div className='mini-cart-container'>
-          <div className='mini-cart-container__cart-head'>
-            <span className='mini-cart-container__cart-head__bold'>My Bag</span>
-            <span className='mini-cart-container__cart-head__light'>, {amount} items</span>
-          </div>
+        <div className={ this.props.isMini ? 'mini-cart-container' : 'cart-container'}>
+          { this.props.isMini ? miniCartHead : bigCartHead }
           {items}
           <div className='mini-cart-container__total'>
             <span>Total</span>
@@ -63,7 +76,7 @@ class Cart extends React.Component {
             <div className='mini-cart-container__buttons-container__checkout' onClick={() => window.alert('Add checkout!')}>Checkout</div>
           </div>
         </div>
-        <div className='mini-cart-background'></div>
+        { this.props.isMini ? <div className='mini-cart-background'></div> : ''}
       </div>
     );
   }
