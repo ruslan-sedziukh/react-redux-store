@@ -74,7 +74,7 @@ class CartItem extends React.Component {
     });
 
     return (
-      <div className="cart-item">
+      <div className={ this.props.isMini ? "cart-item-mini" : "cart-item"}>
         <div className={ this.props.isMini ? "cart-item-mini__left" : "cart-item__left" }>
           <p className={ this.props.isMini ? "cart-item-mini__name" : "cart-item__name" }>{product.name} </p>
           <p className={ this.props.isMini ? "cart-item-mini__price" : "cart-item__price" }>{currencySymbol}{price}</p>

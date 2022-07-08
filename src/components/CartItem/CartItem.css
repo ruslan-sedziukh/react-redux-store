@@ -3,12 +3,6 @@
 /*=======================*/
 /*======= General =======*/
 
-.cart-item {
-  display: flex;
-  margin-bottom: 2.5rem;
-  justify-content: space-between;
-  font-family: 'Raleway';
-}
 
 .cart-item_attributes_list {
   display: flex;
@@ -16,13 +10,11 @@
   justify-content: flex-start;
   max-width: 100%;
   flex-wrap: wrap;
-  /* font-size: 1rem; */
 }
 
 
 .cart-item__right {
   display: flex;
-  /* width: 10.0625rem; */
 }
 
 
@@ -36,6 +28,13 @@
 
 /*=======================*/
 /*======== Mini ========*/
+
+.cart-item-mini {
+  display: flex;
+  margin-bottom: 2.5rem;
+  justify-content: space-between;
+  font-family: 'Raleway';
+}
 
 .cart-item-mini__left {
   width: 8.25rem;
@@ -113,6 +112,15 @@
 
 /*=======================*/
 /*========= Big =========*/
+
+.cart-item {
+  display: flex;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  justify-content: space-between;
+  font-family: 'Raleway';
+  border-top: 0.0625rem solid #E5E5E5;
+}
 
 .cart-item__left {
   box-sizing: border-box;
