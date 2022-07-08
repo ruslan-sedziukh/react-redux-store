@@ -81,22 +81,22 @@ class CartItem extends React.Component {
           {attributes}
         </div>
         <div className="cart-item-mini__right">
-          <div className="cart-item-mini__right__amount-container">
+          <div className={ this.props.isMini ? "cart-item-mini__right__amount-container" : "cart-item__right__amount-container"}>
             <div 
-              className="cart-item-mini__right__amount-container__button"
+              className={ this.props.isMini ? "cart-item-mini__right__amount-container__button" : "cart-item__right__amount-container__button"}
               onClick={this.plusOne}
             >+</div>
             <div>{item.amount}</div>
             <div 
-              className="cart-item-mini__right__amount-container__button"
+              className={ this.props.isMini ? "cart-item-mini__right__amount-container__button" : "cart-item__right__amount-container__button"}
               onClick={this.minusOne}
             >-</div>
           </div>
           <div className="cart-item-mini__right__img-div">
-            <div className="cart-item-mini__right__img-div__img-container">
+            <div className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container" : "cart-item__right__img-div__img-container"}>
               <img 
                 src={product.gallery[0]} 
-                className='cart-item-mini__right__img-div__img-container__img'
+                className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container__img" : "cart-item__right__img-div__img-container__img"}
               />
             </div>
           </div>
