@@ -1,32 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
-.the-color-attribute-container {
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 0.0625rem solid #5ECE7B;
-  box-sizing: border-box;
-  
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/*=======================*/
+/*======= General =======*/
 
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.the-color-attribute-container__color-attribute {
-  min-width: 0.9375rem;
-  min-height: 0.9375rem;
-  cursor: pointer;
-}
-
-.color-attribute {
-  min-width: 1rem;
-  min-height: 1rem;
-  margin-right: 0.5rem;
-  cursor: pointer;
-  margin-top: 0.5rem;
-}
 
 .the-attribute {
   box-sizing: border-box;
@@ -68,4 +44,68 @@
   font-weight: 400;
   font-size: 0.875rem;
   color: #1D1F22;
+}
+
+
+
+/*=======================*/
+/*======== Mini ========*/
+
+.the-color-attribute-container {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.0625rem solid #5ECE7B;
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.the-color-attribute-container__color-attribute {
+  min-width: 0.9375rem;
+  min-height: 0.9375rem;
+  cursor: pointer;
+}
+
+.color-attribute {
+  min-width: 1rem;
+  min-height: 1rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+/*=======================*/
+/*========= Big =========*/
+
+.the-color-attribute-container {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0.0625rem solid #5ECE7B;
+  box-sizing: border-box;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.the-color-attribute-container__color-attribute {
+  min-width: 2rem;
+  min-height: 2rem;
+  cursor: pointer;
+}
+
+.color-attribute {
+  min-width: 2rem;
+  min-height: 2rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
 }
