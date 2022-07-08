@@ -31,7 +31,7 @@ class Cart extends React.Component {
 
     this.props.cart.forEach(item => {
       items.push(
-        <CartItem index={index} id={item.product.id} className='cart-item-container' />
+        <CartItem index={index} id={item.product.id} isMini={this.props.isMini}/>
       );
       index++;
       amount = amount + item.amount;

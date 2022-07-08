@@ -58,13 +58,14 @@ class CartItem extends React.Component {
           theAttribute={theAttribute} 
           attributeValue={element.value}
           itemId={element.id}
+          isMini={this.props.isMini}
         />)
         attributeList.push(attributeItem); 
       });
 
       attributes.push(
-        <div className="cart-item-mini__attributes">
-          <p className="cart-item-mini__attributes__name">{attribute.name}:</p>
+        <div className={ this.props.isMini ? "cart-item-mini__attributes" : "cart-item__attributes"}>
+          <p className={this.props.isMini ? "cart-item-mini__attributes__name" : "cart-item__attributes__name"}>{attribute.name}:</p>
           <div className="cart-item-mini_attributes_list">
             {attributeList}
           </div>
@@ -74,9 +75,9 @@ class CartItem extends React.Component {
 
     return (
       <div className="cart-item-mini">
-        <div className="cart-item-mini__left">
-          <p className="cart-item-mini__name">{product.name} </p>
-          <p className="cart-item-mini__price">{currencySymbol}{price}</p>
+        <div className={ this.props.isMini ? "cart-item-mini__left" : "cart-item__left" }>
+          <p className={ this.props.isMini ? "cart-item-mini__name" : "cart-item__name" }>{product.name} </p>
+          <p className={ this.props.isMini ? "cart-item-mini__price" : "cart-item__price" }>{currencySymbol}{price}</p>
           {attributes}
         </div>
         <div className="cart-item-mini__right">
