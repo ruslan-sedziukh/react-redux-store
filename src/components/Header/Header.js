@@ -151,7 +151,7 @@ class Header extends React.Component {
       let isOutside = true;
       let element = event.target;
       while(element) {
-        if(element.className === 'mini-cart-container') {
+        if(element.className === 'mini-cart-container' || element.className === 'cart-item-mini') {
           isOutside = false;
           break;
         }

@@ -8,7 +8,6 @@ class CurrencyList extends React.Component {
   componentDidMount() {
     let html = document.getElementsByTagName('html');
     html[0].addEventListener('click', this.props.closeCurrencyListOnClickOutside);
-    console.log('CurrencyList did mount');
   }
 
   componentWillUnmount() {

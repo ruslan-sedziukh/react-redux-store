@@ -3,8 +3,6 @@ import './Cart.css';
 import CartItem from '../CartItem/CartItem';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { toHaveStyle } from '@testing-library/jest-dom/dist/matchers';
-
 
 class Cart extends React.Component {
   componentDidMount() {
