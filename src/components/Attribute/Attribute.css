@@ -51,7 +51,7 @@
 /*=======================*/
 /*======== Mini ========*/
 
-.the-color-attribute-container {
+.the-color-attribute-container-mini {
   width: 1.25rem;
   height: 1.25rem;
   border: 0.0625rem solid #5ECE7B;
@@ -65,19 +65,20 @@
   margin-top: 0.5rem;
 }
 
-.the-color-attribute-container__color-attribute {
+.the-color-attribute-container-mini__color-attribute-mini {
   min-width: 0.9375rem;
   min-height: 0.9375rem;
   cursor: pointer;
 }
 
-.color-attribute {
+.color-attribute-mini {
   min-width: 1rem;
   min-height: 1rem;
   margin-right: 0.5rem;
   cursor: pointer;
   margin-top: 0.5rem;
 }
+
 
 /*=======================*/
 /*========= Big =========*/

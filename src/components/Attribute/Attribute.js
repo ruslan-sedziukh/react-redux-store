@@ -27,11 +27,11 @@ class Attribute extends React.Component {
       if (this.props.theAttribute) {
         htmlElement = (
           <div
-            className="the-color-attribute-container"
+            className={ this.props.isMini ? "the-color-attribute-container-mini" : "the-color-attribute-container" }
             onClick={this.onClick}
           >
             <div
-              className='the-color-attribute-container__color-attribute'
+              className={ this.props.isMini ? 'the-color-attribute-container-mini__color-attribute-mini' : 'the-color-attribute-container__color-attribute' } 
               style={{ backgroundColor: this.props.attributeValue }}
             ></div>
           </div>
@@ -40,7 +40,7 @@ class Attribute extends React.Component {
       else {
         htmlElement = (
           <div
-            className='color-attribute'
+            className={ this.props.isMini ? 'color-attribute-mini' : 'color-attribute' } 
             style={{ backgroundColor: this.props.attributeValue }}
             onClick={this.onClick}
           ></div>
