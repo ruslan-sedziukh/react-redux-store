@@ -3,14 +3,14 @@
 /*=======================*/
 /*======= General =======*/
 
-.cart-item-mini {
+.cart-item {
   display: flex;
   margin-bottom: 2.5rem;
   justify-content: space-between;
   font-family: 'Raleway';
 }
 
-.cart-item-mini_attributes_list {
+.cart-item_attributes_list {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -20,13 +20,13 @@
 }
 
 
-.cart-item-mini__right {
+.cart-item__right {
   display: flex;
   /* width: 10.0625rem; */
 }
 
 
-.cart-item-mini__right__img-div {
+.cart-item__right__img-div {
   display: flex;
   height: 100%;
   align-items: center;

@@ -66,7 +66,7 @@ class CartItem extends React.Component {
       attributes.push(
         <div className={ this.props.isMini ? "cart-item-mini__attributes" : "cart-item__attributes"}>
           <p className={this.props.isMini ? "cart-item-mini__attributes__name" : "cart-item__attributes__name"}>{attribute.name}:</p>
-          <div className="cart-item-mini_attributes_list">
+          <div className="cart-item_attributes_list">
             {attributeList}
           </div>
         </div>
@@ -74,13 +74,13 @@ class CartItem extends React.Component {
     });
 
     return (
-      <div className="cart-item-mini">
+      <div className="cart-item">
         <div className={ this.props.isMini ? "cart-item-mini__left" : "cart-item__left" }>
           <p className={ this.props.isMini ? "cart-item-mini__name" : "cart-item__name" }>{product.name} </p>
           <p className={ this.props.isMini ? "cart-item-mini__price" : "cart-item__price" }>{currencySymbol}{price}</p>
           {attributes}
         </div>
-        <div className="cart-item-mini__right">
+        <div className="cart-item__right">
           <div className={ this.props.isMini ? "cart-item-mini__right__amount-container" : "cart-item__right__amount-container"}>
             <div 
               className={ this.props.isMini ? "cart-item-mini__right__amount-container__button" : "cart-item__right__amount-container__button"}
@@ -92,7 +92,7 @@ class CartItem extends React.Component {
               onClick={this.minusOne}
             >-</div>
           </div>
-          <div className="cart-item-mini__right__img-div">
+          <div className="cart-item__right__img-div">
             <div className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container" : "cart-item__right__img-div__img-container"}>
               <img 
                 src={product.gallery[0]} 
