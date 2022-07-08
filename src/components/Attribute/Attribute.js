@@ -49,14 +49,12 @@ class Attribute extends React.Component {
     }
     else {
       htmlElement = (
-        <label>
-          <div
-            className={this.props.theAttribute ? 'the-attribute' : 'attribute'}
-            onClick={this.onClick}
-          >
-            {this.props.attributeValue}
-          </div>
-        </label>
+        <div
+          className={this.props.theAttribute ? (this.props.isMini ? 'the-attribute-mini' : 'the-attribute') : (this.props.isMini ? 'attribute-mini' : 'attribute') }
+          onClick={this.onClick}
+        >
+          {this.props.attributeValue}
+        </div>
       );
     }
 

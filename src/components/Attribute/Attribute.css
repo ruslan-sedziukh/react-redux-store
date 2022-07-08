@@ -1,52 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
-/*=======================*/
-/*======= General =======*/
-
-
-.the-attribute {
-  box-sizing: border-box;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
-  padding: 0 0.1875rem;
-  margin-right: 0.5rem;
-  background-color: #1D1F22;
-  color: #FFFFFF;
-  margin-top: 0.5rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.875rem;
-}
-
-.attribute {
-  box-sizing: border-box;
-  min-width: 1.5rem;
-  min-height: 1.5rem;
-  padding: 0 0.1875rem;
-  border: 0.0625rem solid #1D1F22;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.875rem;
-  color: #1D1F22;
-}
-
-
 
 /*=======================*/
 /*======== Mini ========*/
@@ -79,6 +32,48 @@
   margin-top: 0.5rem;
 }
 
+.the-attribute-mini {
+  box-sizing: border-box;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0 0.1875rem;
+  margin-right: 0.5rem;
+  background-color: #1D1F22;
+  color: #FFFFFF;
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.attribute-mini {
+  box-sizing: border-box;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0 0.1875rem;
+  border: 0.0625rem solid #1D1F22;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+  color: #1D1F22;
+}
+
 
 /*=======================*/
 /*========= Big =========*/
@@ -109,4 +104,46 @@
   margin-right: 0.5rem;
   cursor: pointer;
   margin-top: 0.5rem;
+}
+
+.the-attribute {
+  box-sizing: border-box;
+  min-width: 3.875rem;
+  min-height: 2.8125rem;
+  padding: 0 0.5rem;
+  margin-right: 0.5rem;
+  background-color: #1D1F22;
+  color: #FFFFFF;
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+.attribute {
+  box-sizing: border-box;
+  min-width: 3.875rem;
+  min-height: 2.8125rem;
+  padding: 0 0.5rem;
+  border: 0.0625rem solid #1D1F22;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  font-family: 'Source Sans Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #1D1F22;
 }
