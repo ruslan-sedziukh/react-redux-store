@@ -206,8 +206,8 @@ class Header extends React.Component {
 
     // =========================
     // ====== Cart test ========
-    console.log('>>>>>> Cart:');
-    console.log(this.props.cart);
+    // console.log('>>>>>> Cart:');
+    // console.log(this.props.cart);
 
     return (
       <div className='header-container'>

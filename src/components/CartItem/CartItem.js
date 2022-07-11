@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addToCart, changeAttribute, changeAmount } from '../../store/cartSlice.js';
 import './CartItem.css';
 import Attribute from "../Attribute/Attribute.js";
+import arrowImg from './Vector.svg';
 
 class CartItem extends React.Component {
   constructor(props) {
@@ -73,6 +74,17 @@ class CartItem extends React.Component {
       );
     });
 
+    const changeImgButtons = (
+      <div className="cart-item__right__img-div__img-container__buttons-container">
+        <div className="cart-item__right__img-div__img-container__buttons-container__button" >
+          <img src={ arrowImg } />
+        </div>
+        <div className="cart-item__right__img-div__img-container__buttons-container__button" >
+          <img src={ arrowImg } />
+        </div>
+      </div>
+    );
+
     return (
       <div className={ this.props.isMini ? "cart-item-mini" : "cart-item"}>
         <div className={ this.props.isMini ? "cart-item-mini__left" : "cart-item__left" }>
@@ -98,6 +110,7 @@ class CartItem extends React.Component {
                 src={product.gallery[0]} 
                 className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container__img" : "cart-item__right__img-div__img-container__img"}
               />
+              { this.props.isMini ? '' : changeImgButtons }
             </div>
           </div>
         </div>
