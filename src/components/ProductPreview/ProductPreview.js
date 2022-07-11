@@ -73,13 +73,17 @@ class ProductPreview extends React.Component {
       <div className="product-preview" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
         <div className="product-preview-img-container">
           <div>
+          <Link to={ '/category/' + this.props.category + '/product/' + this.props.id  } >
             <img className="product-preview-img" src={src} />
+          </Link>
           </div>
           <div className="product-preview-cart-container" onClick={this.cartClick}>
             <img className="product-preview-cart" src={cart} />
           </div>
         </div>
-        <p className="product-preview-name">{name}</p>
+        <Link to={ '/category/' + this.props.category + '/product/' + this.props.id  } >
+          <p className="product-preview-name">{name}</p> 
+        </Link>
         <p className="product-preview-price">{symbol}{amount}</p>
       </div>
     );

@@ -19,10 +19,17 @@
   height: auto;
 }
 
+.product-preview a {
+  text-decoration: none;
+}
+
 .product-preview-name {
   font-weight: 300;
   font-size: 1.125rem;
   margin: 1.5rem 0 0 0;
+  line-height: 2.5rem;
+  text-decoration: none;
+  color: #1D1F22;
 }
 
 .product-preview-price {
