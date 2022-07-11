@@ -39,7 +39,7 @@ class CartItem extends React.Component {
 
     let newGalleryIndex = this.state.galleryIndex + 1;
 
-    if(newGalleryIndex === (product.gallery.length - 1)) {
+    if(newGalleryIndex === (product.gallery.length)) {
       newGalleryIndex = 0;
     }
 
@@ -106,15 +106,15 @@ class CartItem extends React.Component {
     });
 
     const changeImgButtons = (
-      <div className="cart-item__right__img-div__img-container__buttons-container">
+      <div className="cart-item__right__img-div__buttons-container">
         <div 
-          className="cart-item__right__img-div__img-container__buttons-container__button" 
+          className="cart-item__right__img-div__buttons-container__button" 
           onClick={ this.prevImg }
         >
           <img src={ arrowImg } />
         </div>
         <div 
-          className="cart-item__right__img-div__img-container__buttons-container__button" 
+          className="cart-item__right__img-div__buttons-container__button" 
           onClick={ this.nextImg }
         >
           <img src={ arrowImg } />
@@ -147,8 +147,8 @@ class CartItem extends React.Component {
                 src={ product.gallery[this.state.galleryIndex] } 
                 className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container__img" : "cart-item__right__img-div__img-container__img"}
               />
-              { this.props.isMini ? '' : changeImgButtons }
             </div>
+            { this.props.isMini ? '' : changeImgButtons }
           </div>
         </div>
       </div>
