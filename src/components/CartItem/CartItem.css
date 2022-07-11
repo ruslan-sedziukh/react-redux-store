@@ -209,6 +209,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .cart-item__right__img-div__buttons-container__button:first-of-type {
