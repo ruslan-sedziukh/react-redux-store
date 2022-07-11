@@ -60,19 +60,50 @@ class Cart extends React.Component {
       </div>
     );
 
+    const miniCartFooter = (
+      <div>
+        <div className='mini-cart-container__total'>
+          <span>Total</span>
+          <span>{currencySymbol}{Math.round(total * 100) / 100}</span>
+        </div>
+        <div className='mini-cart-container__buttons-container' >
+          <Link className='mini-cart-container__buttons-container__view-bag' to='/cart' onClick={this.props.toggleMiniCart}>View bag</Link>
+          <div className='mini-cart-container__buttons-container__checkout' onClick={() => window.alert('Add checkout!')}>Checkout</div>
+        </div>
+      </div>
+    );
+
+    let quantity = 0;
+    this.props.cart.forEach(element => {
+      quantity = quantity + element.amount;
+    });
+
+    const cartFooter = (
+      <div className='cart-container__footer'>
+        <table className='cart-container__footer__total'>
+          <tr>
+            <td>Tax 21%:</td>
+            <td>{currencySymbol}{Math.round((total * 0.21) * 100) / 100}</td>
+          </tr>
+          <tr>
+            <td>Quantity:</td>
+            <td>{quantity}</td>
+          </tr>
+          <tr>
+            <td>Total:</td>
+            <td>{currencySymbol}{Math.round(total * 100) / 100}</td>
+          </tr>
+        </table>
+        <div className='cart-container__footer__buttons-container__order' onClick={() => window.alert('Add checkout!')}>Order</div>
+      </div>
+    );
+
     return (
       <div>
         <div className={ this.props.isMini ? 'mini-cart-container' : 'cart-container'}>
           { this.props.isMini ? miniCartHead : bigCartHead }
           {items}
-          <div className='mini-cart-container__total'>
-            <span>Total</span>
-            <span>{currencySymbol}{Math.round(total * 100) / 100}</span>
-          </div>
-          <div className='mini-cart-container__buttons-container'>
-            <Link className='mini-cart-container__buttons-container__view-bag' to='/cart' onClick={this.props.toggleMiniCart}>View bag</Link>
-            <div className='mini-cart-container__buttons-container__checkout' onClick={() => window.alert('Add checkout!')}>Checkout</div>
-          </div>
+          { this.props.isMini ? miniCartFooter : cartFooter }
         </div>
         { this.props.isMini ? <div className='mini-cart-background'></div> : ''}
       </div>
