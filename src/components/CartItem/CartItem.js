@@ -8,8 +8,13 @@ import arrowImg from './Vector.svg';
 class CartItem extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { galleryIndex: 0 };
+
     this.plusOne = this.plusOne.bind(this);
     this.minusOne = this.minusOne.bind(this);
+    this.nextImg = this.nextImg.bind(this);
+    this.prevImg = this.prevImg.bind(this);
   }
 
   plusOne(){
@@ -26,6 +31,32 @@ class CartItem extends React.Component {
       action: '-'
     };
     this.props.changeAmount(payload);
+  }
+
+  nextImg() {
+    const item = this.props.cart[this.props.index];
+    const product = item.product;
+
+    let newGalleryIndex = this.state.galleryIndex + 1;
+
+    if(newGalleryIndex === (product.gallery.length - 1)) {
+      newGalleryIndex = 0;
+    }
+
+    this.setState( { galleryIndex: newGalleryIndex } );
+  }
+
+  prevImg() {
+    const item = this.props.cart[this.props.index];
+    const product = item.product;
+
+    let newGalleryIndex = this.state.galleryIndex - 1;
+
+    if(newGalleryIndex === -1) {
+      newGalleryIndex = product.gallery.length - 1;
+    }
+
+    this.setState( { galleryIndex: newGalleryIndex } );
   }
 
   render() {
@@ -76,10 +107,16 @@ class CartItem extends React.Component {
 
     const changeImgButtons = (
       <div className="cart-item__right__img-div__img-container__buttons-container">
-        <div className="cart-item__right__img-div__img-container__buttons-container__button" >
+        <div 
+          className="cart-item__right__img-div__img-container__buttons-container__button" 
+          onClick={ this.prevImg }
+        >
           <img src={ arrowImg } />
         </div>
-        <div className="cart-item__right__img-div__img-container__buttons-container__button" >
+        <div 
+          className="cart-item__right__img-div__img-container__buttons-container__button" 
+          onClick={ this.nextImg }
+        >
           <img src={ arrowImg } />
         </div>
       </div>
@@ -107,7 +144,7 @@ class CartItem extends React.Component {
           <div className="cart-item__right__img-div">
             <div className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container" : "cart-item__right__img-div__img-container"}>
               <img 
-                src={product.gallery[0]} 
+                src={ product.gallery[this.state.galleryIndex] } 
                 className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container__img" : "cart-item__right__img-div__img-container__img"}
               />
               { this.props.isMini ? '' : changeImgButtons }
