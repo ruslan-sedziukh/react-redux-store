@@ -16,6 +16,7 @@ class ProductPage extends React.Component {
     };
 
     this.getProduct = this.getProduct.bind(this);
+    this.setAttribute = this.setAttribute.bind(this);
   }
 
   async getProduct() {
@@ -64,6 +65,17 @@ class ProductPage extends React.Component {
     this.getProduct();
   }
 
+  setAttribute(attributeId, attributeItem) {
+    this.setState({ 
+      attributes: { 
+        ...this.state.attributes, 
+        [attributeId]: {
+           item: attributeItem 
+          }
+        }
+      });
+  }
+
   render() {
     // console.log(this.props.match.params.category);
     // console.log(this.props.match.params.product);
@@ -102,12 +114,15 @@ class ProductPage extends React.Component {
           }
           
           let attributeItem = (<Attribute 
-            index={this.props.index}
+            // index={this.props.index}
             attributeId={attribute.id} 
             theAttribute={theAttribute} 
             attributeValue={element.value}
             itemId={element.id}
+            item={element}
             isMini={this.props.isMini}
+            productPage={true}
+            setAttribute={this.setAttribute}
           />)
           attributeList.push(attributeItem); 
         });

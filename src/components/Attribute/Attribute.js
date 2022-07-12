@@ -6,10 +6,11 @@ import './Attribute.css';
 class Attribute extends React.Component {
   constructor(props){
     super(props);
-    this.onClick = this.onClick.bind(this);
+    this.changeAttributeOfCartItem = this.changeAttributeOfCartItem.bind(this);
+    this.changeAttributeOfProductPage = this.changeAttributeOfProductPage.bind(this);
   }
 
-  onClick() {
+  changeAttributeOfCartItem() {
     let payload = {
       index: this.props.index,
       attribute: {
@@ -20,6 +21,10 @@ class Attribute extends React.Component {
     this.props.changeAttribute(payload);
   }
 
+  changeAttributeOfProductPage() {
+    this.props.setAttribute(this.props.attributeId, this.props.item);
+  }
+
   render() {
     let htmlElement;
 
@@ -28,7 +33,7 @@ class Attribute extends React.Component {
         htmlElement = (
           <div
             className={ this.props.isMini ? "the-color-attribute-container-mini" : "the-color-attribute-container" }
-            onClick={this.onClick}
+            onClick={this.props.productPage ? this.changeAttributeOfProductPage : this.changeAttributeOfCartItem}
           >
             <div
               className={ this.props.isMini ? 'the-color-attribute-container-mini__color-attribute-mini' : 'the-color-attribute-container__color-attribute' } 
@@ -42,7 +47,7 @@ class Attribute extends React.Component {
           <div
             className={ this.props.isMini ? 'color-attribute-mini' : 'color-attribute' } 
             style={{ backgroundColor: this.props.attributeValue }}
-            onClick={this.onClick}
+            onClick={this.props.productPage ? this.changeAttributeOfProductPage : this.changeAttributeOfCartItem}
           ></div>
         );
       }
@@ -51,7 +56,7 @@ class Attribute extends React.Component {
       htmlElement = (
         <div
           className={this.props.theAttribute ? (this.props.isMini ? 'the-attribute-mini' : 'the-attribute') : (this.props.isMini ? 'attribute-mini' : 'attribute') }
-          onClick={this.onClick}
+          onClick={this.props.productPage ? this.changeAttributeOfProductPage : this.changeAttributeOfCartItem}
         >
           {this.props.attributeValue}
         </div>
