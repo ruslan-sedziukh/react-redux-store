@@ -81,18 +81,20 @@ class Cart extends React.Component {
     const cartFooter = (
       <div className='cart-container__footer'>
         <table className='cart-container__footer__total'>
-          <tr>
-            <td>Tax 21%:</td>
-            <td>{currencySymbol}{Math.round((total * 0.21) * 100) / 100}</td>
-          </tr>
-          <tr>
-            <td>Quantity:</td>
-            <td>{quantity}</td>
-          </tr>
-          <tr>
-            <td>Total:</td>
-            <td>{currencySymbol}{Math.round(total * 100) / 100}</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td>Tax 21%:</td>
+              <td>{currencySymbol}{Math.round((total * 0.21) * 100) / 100}</td>
+            </tr>
+            <tr>
+              <td>Quantity:</td>
+              <td>{quantity}</td>
+            </tr>
+            <tr>
+              <td>Total:</td>
+              <td>{currencySymbol}{Math.round(total * 100) / 100}</td>
+            </tr>
+          </tbody>
         </table>
         <div className='cart-container__footer__buttons-container__order' onClick={() => window.alert('Add checkout!')}>Order</div>
       </div>

@@ -1,14 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header.js';
 import CategoryPage from './components/CategoryPage/CategoryPage.js';
 import Cart from './components/Cart/Cart.js';
 import ProductPage from './components/ProductPage/ProductPage.js';
+import { connect } from 'react-redux';
 
 class App extends React.Component {
   render() {
+    let categorie = '';
+    for(let i in this.props.categories) {
+      categorie = i;
+      break;
+    }
+
     return (
       <div>
         <Route>
@@ -23,6 +30,10 @@ class App extends React.Component {
           <Route path='/category/:category'>
             <CategoryPage />
           </Route>
+
+          <Route path='/'>
+            <Redirect to={ `/category/${categorie}` } />
+          </Route>
         </Switch>
 
         <Route path='/cart'>
@@ -33,4 +44,10 @@ class App extends React.Component {
   }
 }
 
-export default App;
+
+function mapStateToProps(state) {
+  return { categories: state.categories };
+}
+
+
+export default connect(mapStateToProps)(App);
