@@ -4,6 +4,7 @@ import { addToCart, changeAttribute, changeAmount } from '../../store/cartSlice.
 import './CartItem.css';
 import Attribute from "../Attribute/Attribute.js";
 import arrowImg from './Vector.svg';
+import { Link } from "react-router-dom";
 
 class CartItem extends React.Component {
   constructor(props) {
@@ -125,7 +126,9 @@ class CartItem extends React.Component {
     return (
       <div className={ this.props.isMini ? "cart-item-mini" : "cart-item"}>
         <div className={ this.props.isMini ? "cart-item-mini__left" : "cart-item__left" }>
-          <p className={ this.props.isMini ? "cart-item-mini__name" : "cart-item__name" }>{product.name} </p>
+          <Link to={ `/category/${item.category}/product/${product.id}` } >
+            <p className={ this.props.isMini ? "cart-item-mini__name" : "cart-item__name" }>{product.name} </p>
+          </Link>
           <p className={ this.props.isMini ? "cart-item-mini__price" : "cart-item__price" }>{currencySymbol}{price}</p>
           {attributes}
         </div>

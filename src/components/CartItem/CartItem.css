@@ -38,6 +38,10 @@
   font-family: 'Raleway';
 }
 
+.cart-item-mini a {
+  text-decoration: none;
+}
+
 .cart-item-mini__left {
   width: 8.25rem;
   box-sizing: border-box;
@@ -51,6 +55,7 @@
   font-size: 1rem;
   line-height: 160%;
   margin-right: 0.5rem;
+  color: #1D1F22;
 }
 
 .cart-item-mini__price {
@@ -124,6 +129,10 @@
   border-top: 0.0625rem solid #E5E5E5;
 }
 
+.cart-item a {
+  text-decoration: none;
+}
+
 .cart-item__left {
   box-sizing: border-box;
 }
@@ -133,6 +142,7 @@
   font-style: normal;
   font-size: 1.875rem;
   font-weight: 400;
+  color: #1D1F22;
 }
 
 .cart-item__price {
