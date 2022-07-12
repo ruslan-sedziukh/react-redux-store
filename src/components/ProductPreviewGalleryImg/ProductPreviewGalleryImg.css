@@ -1,0 +1,10 @@
+.product-preview-gallery-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.product-preview-gallery-img {
+  max-width: 5rem;
+}

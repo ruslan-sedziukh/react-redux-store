@@ -17,6 +17,10 @@
   margin-right: 2rem;
 }
 
+.img-preview-block {
+  margin-right: 1rem;
+}
+
 .big-img-container {
   display: inline-flex;
   justify-content: center;

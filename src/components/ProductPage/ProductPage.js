@@ -5,6 +5,7 @@ import './ProductPage.css';
 import Attribute from "../Attribute/Attribute.js";
 import { withRouter } from "react-router-dom";
 import './ProductPage.css';
+import ProductPreviewGalleryImg from "../ProductPreviewGalleryImg/ProductPreviewGalleryImg.js";
 
 class ProductPage extends React.Component {
   constructor(props) {
@@ -12,12 +13,14 @@ class ProductPage extends React.Component {
 
     this.state = {
       product: {},
-      attributes: {}
+      attributes: {},
+      bigImgSrc: ''
     };
 
     this.getProduct = this.getProduct.bind(this);
     this.setAttribute = this.setAttribute.bind(this);
     this.addToCart = this.addToCart.bind(this);
+    this.setBigImg = this.setBigImg.bind(this);
   }
 
   async getProduct() {
@@ -53,6 +56,10 @@ class ProductPage extends React.Component {
           attributes[attribute.id] = { item: { id: attribute.items[0].id } };
         });
         this.setState({ attributes: attributes });
+
+        // Set default big img src 
+
+        this.setState({ bigImgSrc: data.data.product.gallery[0] })
       }
     }
     catch (error) {
@@ -82,6 +89,10 @@ class ProductPage extends React.Component {
       attributes: this.state.attributes
     };
     this.props.addToCart(payload);
+  }
+
+  setBigImg(src) {
+    this.setState({ bigImgSrc: src });
   }
 
   render() {
@@ -146,17 +157,30 @@ class ProductPage extends React.Component {
       });
     }
 
-
+    // ====================
+    // !!!!!!!!!!!!!!!!!!!!
+    // Add code here
+    let galleryImgs = [];
+    if(this.state.product.gallery) {
+      this.state.product.gallery.forEach(element => {
+        galleryImgs.push(
+          <ProductPreviewGalleryImg
+          setBigImg={ this.setBigImg }
+          src={ element }
+          />
+        );
+      });
+    }
 
     return (
       <div className="product-page-container">
         <div className="product-page-img-block">
           <div className="img-preview-block">
-            
+            {galleryImgs}
           </div>
           <div className="big-img-container">
             <img
-              src={this.state.product.gallery ? this.state.product.gallery[0] : ''}
+              src={ this.state.bigImgSrc }
               className='big-img'
             />
           </div>
