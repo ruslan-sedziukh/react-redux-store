@@ -87,11 +87,11 @@ class ProductPage extends React.Component {
   render() {
     // console.log(this.props.match.params.category);
     // console.log(this.props.match.params.product);
-    // console.log('ProductPage Render');
-    // console.log('this.state.product');
-    // console.log(this.state.product);
-    // console.log('this.state.attributes');
-    // console.log(this.state.attributes);
+    console.log('ProductPage Render');
+    console.log('this.state.product');
+    console.log(this.state.product);
+    console.log('this.state.attributes');
+    console.log(this.state.attributes);
 
     const product = this.state.product;
     const currencyLabel = this.props.currencies.currency ? this.props.currencies.currency.label : '';
@@ -156,6 +156,11 @@ class ProductPage extends React.Component {
             <p className="product-price" >{currencySymbol}{price}</p>
           </div>
           <div className='product-page-add-to-cart-button' onClick={ this.addToCart }>Add to cart</div>
+          <div 
+            className="product-page-desctiption" 
+            dangerouslySetInnerHTML={{__html: this.state.product.description ? this.state.product.description : ''}}
+          >
+          </div>
         </div>
       </div>
     );

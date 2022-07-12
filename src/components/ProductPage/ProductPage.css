@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
+.product-page-container {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+  font-family: 'Raleway';
+  color: #1D1F22;
+  margin-top: 5rem;
+}
+
+.attributes {
+  margin: 0;
+  margin-top: 1.25rem;
+}
+
 .attributes_list {
   display: flex;
   align-items: center;
@@ -17,21 +31,6 @@
   line-height: 1rem;
   margin: 0;
   margin-right: 0.5rem;
-}
-
-.attributes {
-  margin: 0;
-  margin-top: 1.25rem;
-}
-
-
-.product-page-container {
-  display: flex;
-  margin-bottom: 2rem;
-  padding-top: 1.5rem;
-  justify-content: space-between;
-  font-family: 'Raleway';
-  border-top: 0.0625rem solid #E5E5E5;
 }
 
 .product-name {
@@ -73,3 +72,9 @@
   cursor: pointer;
 }
 
+.product-page-desctiption {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 2.5rem;
+}
