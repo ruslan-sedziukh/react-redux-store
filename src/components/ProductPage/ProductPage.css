@@ -52,4 +52,24 @@
   margin-top: 2.25rem;
 }
 
+.product-page-add-to-cart-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Raleway';
+  font-weight: 600;
+  font-size: 1rem;
+  color: #FFF;
+
+  width: 17.5rem;
+  height: 2.625rem;
+  box-sizing: border-box;
+  margin-top: 1.25rem;
+  background-color: #5ECE7B;
+
+  cursor: pointer;
+}
 

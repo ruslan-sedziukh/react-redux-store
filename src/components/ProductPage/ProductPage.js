@@ -17,12 +17,13 @@ class ProductPage extends React.Component {
 
     this.getProduct = this.getProduct.bind(this);
     this.setAttribute = this.setAttribute.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   async getProduct() {
     const query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id name description attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }"
-    console.log('>>>>>>> query2:');
-    console.log(query);
+    // console.log('>>>>>>> query2:');
+    // console.log(query);
 
     try {
       const response = await fetch('http://localhost:4000/', {
@@ -59,8 +60,6 @@ class ProductPage extends React.Component {
     }
   }
 
-
-
   componentDidMount() {
     this.getProduct();
   }
@@ -76,14 +75,23 @@ class ProductPage extends React.Component {
       });
   }
 
+  addToCart() {
+    const payload = {
+      category: this.props.match.params.category,
+      product: this.state.product,
+      attributes: this.state.attributes
+    };
+    this.props.addToCart(payload);
+  }
+
   render() {
     // console.log(this.props.match.params.category);
     // console.log(this.props.match.params.product);
     // console.log('ProductPage Render');
-    console.log('this.state.product');
-    console.log(this.state.product);
-    console.log('this.state.attributes');
-    console.log(this.state.attributes);
+    // console.log('this.state.product');
+    // console.log(this.state.product);
+    // console.log('this.state.attributes');
+    // console.log(this.state.attributes);
 
     const product = this.state.product;
     const currencyLabel = this.props.currencies.currency ? this.props.currencies.currency.label : '';
@@ -147,6 +155,7 @@ class ProductPage extends React.Component {
             <p className="attributes__name">Price:</p>
             <p className="product-price" >{currencySymbol}{price}</p>
           </div>
+          <div className='product-page-add-to-cart-button' onClick={ this.addToCart }>Add to cart</div>
         </div>
       </div>
     );
