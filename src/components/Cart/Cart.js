@@ -29,7 +29,7 @@ class Cart extends React.Component {
 
     this.props.cart.forEach(item => {
       items.push(
-        <CartItem index={index} id={item.product.id} isMini={this.props.isMini}/>
+        <CartItem index={index} id={item.product.id} isMini={this.props.isMini} toggleMiniCart={this.props.toggleMiniCart}/>
       );
       index++;
       amount = amount + item.amount;

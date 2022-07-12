@@ -24,9 +24,7 @@ class ProductPage extends React.Component {
   }
 
   async getProduct() {
-    const query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id name description attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }"
-    // console.log('>>>>>>> query2:');
-    // console.log(query);
+    const query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id name description attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }";
 
     try {
       const response = await fetch('http://localhost:4000/', {
@@ -96,14 +94,6 @@ class ProductPage extends React.Component {
   }
 
   render() {
-    // console.log(this.props.match.params.category);
-    // console.log(this.props.match.params.product);
-    console.log('ProductPage Render');
-    console.log('this.state.product');
-    console.log(this.state.product);
-    console.log('this.state.attributes');
-    console.log(this.state.attributes);
-
     const product = this.state.product;
     const currencyLabel = this.props.currencies.currency ? this.props.currencies.currency.label : '';
     const currencySymbol = this.props.currencies.currency ? this.props.currencies.currency.symbol : '';

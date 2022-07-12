@@ -126,7 +126,7 @@ class CartItem extends React.Component {
     return (
       <div className={ this.props.isMini ? "cart-item-mini" : "cart-item"}>
         <div className={ this.props.isMini ? "cart-item-mini__left" : "cart-item__left" }>
-          <Link to={ `/category/${item.category}/product/${product.id}` } >
+          <Link to={ `/category/${item.category}/product/${product.id}`} onClick={this.props.toggleMiniCart} >
             <p className={ this.props.isMini ? "cart-item-mini__name" : "cart-item__name" }>{product.name} </p>
           </Link>
           <p className={ this.props.isMini ? "cart-item-mini__price" : "cart-item__price" }>{currencySymbol}{price}</p>
