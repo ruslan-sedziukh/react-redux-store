@@ -4,6 +4,7 @@ import { addToCart, changeAttribute } from '../../store/cartSlice.js';
 import './ProductPage.css';
 import Attribute from "../Attribute/Attribute.js";
 import { withRouter } from "react-router-dom";
+import './ProductPage.css';
 
 class ProductPage extends React.Component {
   constructor(props) {
@@ -15,12 +16,10 @@ class ProductPage extends React.Component {
     };
 
     this.getProduct = this.getProduct.bind(this);
-    this.setDefaultAttributes = this.setDefaultAttributes.bind(this);
   }
 
   async getProduct() {
-    // let query1 = "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { product (id: \"" + this.props.match.product + "\" ) { id name attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } } }";
-    let query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id name attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }"
+    const query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id name attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }"
     console.log('>>>>>>> query2:');
     console.log(query);
 
@@ -44,6 +43,14 @@ class ProductPage extends React.Component {
         };
 
         this.setState({ product: data.data.product });
+
+        // Set default attributes
+
+        let attributes = {};
+        data.data.product.attributes.forEach(attribute => {
+          attributes[attribute.id] = { item: { id: attribute.items[0].id } };
+        });
+        this.setState({ attributes: attributes });
       }
     }
     catch (error) {
@@ -51,37 +58,90 @@ class ProductPage extends React.Component {
     }
   }
 
-  setDefaultAttributes() {
-    if(this.state.product.attributes) {
-      let attributes = {};
-      this.state.product.attributes.forEach(attribute => {
-        attributes[attribute.id] = { item: { id: attribute.items[0].id } };
-      });
-      this.setState({ attributes: attributes });
-    }
-  }
 
-  async componentDidMount() {
-    await this.getProduct();
-    this.setDefaultAttributes();
+
+  componentDidMount() {
+    this.getProduct();
   }
 
   render() {
     // console.log(this.props.match.params.category);
     // console.log(this.props.match.params.product);
     // console.log('ProductPage Render');
-    // console.log('this.state.product');
-    // console.log(this.state.product);
-    // console.log('this.state.attributes');
-    // console.log(this.state.attributes);
+    console.log('this.state.product');
+    console.log(this.state.product);
+    console.log('this.state.attributes');
+    console.log(this.state.attributes);
+
+    const product = this.state.product;
+    const currencyLabel = this.props.currencies.currency ? this.props.currencies.currency.label : '';
+    const currencySymbol = this.props.currencies.currency ? this.props.currencies.currency.symbol : '';
+    let price;
+
+    let attributes = [];
+
+    let attributesN = 0;
+    for(let i in this.state.attributes) {
+      attributesN ++;
+    }
+
+    if(this.state.product.attributes && attributesN){
+      product.attributes.forEach(attribute => {
+        let attributeList = [];
+  
+        attribute.items.forEach(element => {
+          let theAttribute = false;
+          if (this.state.attributes[attribute.id].item.id === element.id) {
+            theAttribute = true;
+          }
+          
+          let attributeItem = (<Attribute 
+            index={this.props.index}
+            attributeId={attribute.id} 
+            theAttribute={theAttribute} 
+            attributeValue={element.value}
+            itemId={element.id}
+            isMini={this.props.isMini}
+          />)
+          attributeList.push(attributeItem); 
+        });
+  
+        attributes.push(
+          <div className="cart-item__attributes">
+            <p className="cart-item__attributes__name">{attribute.name}:</p>
+            <div className="cart-item_attributes_list">
+              {attributeList}
+            </div>
+          </div>
+        );
+      });
+    }
 
     return (
       <div className="product-page-container">
-        {this.props.match.params.category} {this.props.match.params.product}
-        sdfsdfsdf
+        <div className={ "cart-item"}>
+          <div className={ "cart-item__left" }>
+            <p className={ "cart-item__name" }>{product.name} </p>
+            <p className={ "cart-item__price" }>{currencySymbol}{price}</p>
+            {attributes}
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default withRouter(ProductPage);
+function mapStateToProps(state) {
+  return { currencies: state.currencies };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (payload) => dispatch(addToCart(payload))
+  }
+}
+
+
+const connectedProductPage = connect(mapStateToProps, mapDispatchToProps)(ProductPage);
+
+export default withRouter(connectedProductPage);
