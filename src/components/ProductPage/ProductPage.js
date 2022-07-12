@@ -86,6 +86,12 @@ class ProductPage extends React.Component {
     }
 
     if(this.state.product.attributes && attributesN){
+      product.prices.forEach(element => {
+        if(element.currency.label === currencyLabel) {
+          price = element.amount;
+        }
+      });
+
       product.attributes.forEach(attribute => {
         let attributeList = [];
   
@@ -107,9 +113,9 @@ class ProductPage extends React.Component {
         });
   
         attributes.push(
-          <div className="cart-item__attributes">
-            <p className="cart-item__attributes__name">{attribute.name}:</p>
-            <div className="cart-item_attributes_list">
+          <div className="attributes">
+            <p className="attributes__name">{attribute.name}:</p>
+            <div className="attributes_list">
               {attributeList}
             </div>
           </div>
@@ -119,11 +125,12 @@ class ProductPage extends React.Component {
 
     return (
       <div className="product-page-container">
-        <div className={ "cart-item"}>
-          <div className={ "cart-item__left" }>
-            <p className={ "cart-item__name" }>{product.name} </p>
-            <p className={ "cart-item__price" }>{currencySymbol}{price}</p>
-            {attributes}
+        <div className="product-page-main-info" >
+          <p className="product-name" >{product.name} </p>
+          {attributes}
+          <div className="product-price-block">
+            <p className="attributes__name">Price:</p>
+            <p className="product-price" >{currencySymbol}{price}</p>
           </div>
         </div>
       </div>
