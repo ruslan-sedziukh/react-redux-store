@@ -146,8 +146,22 @@ class ProductPage extends React.Component {
       });
     }
 
+
+
     return (
       <div className="product-page-container">
+        <div className="product-page-img-block">
+          <div className="img-preview-block">
+            
+          </div>
+          <div className="big-img-container">
+            <img
+              src={this.state.product.gallery ? this.state.product.gallery[0] : ''}
+              className='big-img'
+            />
+          </div>
+        </div>
+
         <div className="product-page-main-info" >
           <p className="product-name" >{product.name} </p>
           {attributes}

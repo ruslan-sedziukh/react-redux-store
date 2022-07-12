@@ -3,11 +3,33 @@
 .product-page-container {
   display: flex;
   margin-bottom: 2rem;
-  justify-content: space-between;
+  justify-content: space-around;
   font-family: 'Raleway';
   color: #1D1F22;
   margin-top: 5rem;
 }
+
+
+.product-page-img-block {
+  flex-shrink: 1;
+  display: flex;
+  min-width: 0;
+  margin-right: 2rem;
+}
+
+.big-img-container {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
+  min-width:0
+}
+
+.big-img {
+  max-width: 38.125rem;
+  min-width: 0;
+}
+
 
 .product-page-main-info{
   width: 17.5rem;
