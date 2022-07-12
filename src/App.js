@@ -31,14 +31,14 @@ class App extends React.Component {
             <CategoryPage />
           </Route>
 
+          <Route path='/cart'>
+            <Cart isMini={false} />
+          </Route>
+
           <Route path='/'>
             <Redirect to={ `/category/${categorie}` } />
           </Route>
         </Switch>
-
-        <Route path='/cart'>
-          <Cart isMini={false} />
-        </Route>
       </div>
     );
   }
