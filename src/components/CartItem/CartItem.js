@@ -98,7 +98,7 @@ class CartItem extends React.Component {
       });
 
       attributes.push(
-        <div className={ this.props.isMini ? "cart-item-mini__attributes" : "cart-item__attributes"} key={Math.random() * 20} >
+        <div className={ this.props.isMini ? "cart-item-mini__attributes" : "cart-item__attributes"} key={attribute.id} >
           <p className={this.props.isMini ? "cart-item-mini__attributes__name" : "cart-item__attributes__name"}>{attribute.name}:</p>
           <div className="cart-item_attributes_list">
             {attributeList}
