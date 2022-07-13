@@ -34,7 +34,7 @@ class Cart extends React.Component {
           id={item.product.id} 
           isMini={this.props.isMini} 
           toggleMiniCart={this.props.toggleMiniCart}
-          key={item.product.id}
+          key={`${item.product.id}-${index}`}
         />
       );
       index++;
