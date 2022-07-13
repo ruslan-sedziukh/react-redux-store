@@ -27,11 +27,12 @@
   justify-content: center;
   align-items: flex-start;
   flex-shrink: 1;
-  min-width:0
+  min-width: 0;
+  width: 35rem;
 }
 
 .big-img {
-  max-width: 38.125rem;
+  max-width: 35rem;
   min-width: 0;
 }
 
