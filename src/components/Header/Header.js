@@ -184,7 +184,7 @@ class Header extends React.Component {
     const links = [];
 
     for (let category in this.props.categories) {
-      links.push(<NavLink to={'/category/' + category}>{category}</NavLink>);
+      links.push(<NavLink to={'/category/' + category} key={category}>{category}</NavLink>);
     };
 
     let arrowClass = '';
@@ -203,11 +203,6 @@ class Header extends React.Component {
     if(counter) {
       badgeOn = true;
     }
-
-    // =========================
-    // ====== Cart test ========
-    // console.log('>>>>>> Cart:');
-    // console.log(this.props.cart);
 
     return (
       <div className='header-container'>

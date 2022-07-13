@@ -60,6 +60,7 @@ class CategoryPage extends React.Component {
           id={element.id}
           index={index} 
           currency={this.props.currencies.currency.label}
+          key={element.id}
           />);
         index ++;
       });

@@ -22,7 +22,7 @@ class CurrencyList extends React.Component {
     if(this.props.currencies.currencies) {
       this.props.currencies.currencies.forEach(currency => {
         currencies.push(
-          <CurrencyItem currency={currency} closeList={this.props.closeList} />
+          <CurrencyItem currency={currency} closeList={this.props.closeList} key={currency.label} />
         );
       });
     }
