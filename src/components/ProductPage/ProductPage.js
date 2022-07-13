@@ -132,12 +132,13 @@ class ProductPage extends React.Component {
             isMini={this.props.isMini}
             productPage={true}
             setAttribute={this.setAttribute}
+            key={element.id}
           />)
           attributeList.push(attributeItem); 
         });
   
         attributes.push(
-          <div className="attributes">
+          <div className="attributes" key={attribute.id}>
             <p className="attributes__name">{attribute.name}:</p>
             <div className="attributes_list">
               {attributeList}
@@ -157,6 +158,7 @@ class ProductPage extends React.Component {
           <ProductPreviewGalleryImg
           setBigImg={ this.setBigImg }
           src={ element }
+          key={ element }
           />
         );
       });
