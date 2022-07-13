@@ -106,13 +106,15 @@ class ProductPage extends React.Component {
       attributesN ++;
     }
 
-    if(this.state.product.attributes && attributesN){
+    if(this.state.product.prices) {
       product.prices.forEach(element => {
         if(element.currency.label === currencyLabel) {
           price = element.amount;
         }
       });
+    }
 
+    if(this.state.product.attributes && attributesN){
       product.attributes.forEach(attribute => {
         let attributeList = [];
   
