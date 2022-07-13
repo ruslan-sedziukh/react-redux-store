@@ -22,7 +22,7 @@ class Attribute extends React.Component {
   }
 
   changeAttributeOfProductPage() {
-    this.props.setAttribute(this.props.attributeId, this.props.item);
+    this.props.setAttribute(this.props.attributeId, this.props.itemId);
   }
 
   render() {

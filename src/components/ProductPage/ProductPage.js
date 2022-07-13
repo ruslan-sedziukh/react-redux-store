@@ -69,12 +69,12 @@ class ProductPage extends React.Component {
     this.getProduct();
   }
 
-  setAttribute(attributeId, attributeItem) {
+  setAttribute(attributeId, attributeItemId) {
     this.setState({ 
       attributes: { 
         ...this.state.attributes, 
         [attributeId]: {
-           item: attributeItem 
+           item: { id: attributeItemId }
           }
         }
       });
