@@ -152,7 +152,7 @@ class CartItem extends React.Component {
                 className={ this.props.isMini ? "cart-item-mini__right__img-div__img-container__img" : "cart-item__right__img-div__img-container__img"}
               />
             </div>
-            { this.props.isMini ? '' : changeImgButtons }
+            { this.props.isMini ? '' : ( product.gallery.length > 1 ? changeImgButtons : '') }
           </div>
         </div>
       </div>
