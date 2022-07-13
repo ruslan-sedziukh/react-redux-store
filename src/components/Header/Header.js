@@ -86,7 +86,9 @@ class Header extends React.Component {
   async componentDidMount() {
     await this.getCategories();
     await this.getCurrencies();
-    this.setDefaultCurrency();
+    if(!this.props.currencies.currency) {
+      this.setDefaultCurrency();
+    }
   }
 
   currencyOnClick(){
