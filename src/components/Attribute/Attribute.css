@@ -30,6 +30,8 @@
   margin-right: 0.5rem;
   cursor: pointer;
   margin-top: 0.5rem;
+  box-sizing: border-box;
+  border: solid 0.0625rem #1D1F22;
 }
 
 .the-attribute-mini {
@@ -103,6 +105,8 @@
   margin-right: 0.5rem;
   cursor: pointer;
   margin-top: 0.5rem;
+  box-sizing: border-box;
+  border: solid 0.0625rem #1D1F22;
 }
 
 .the-attribute {
