@@ -15,7 +15,7 @@ class CategoryPage extends React.Component {
           'content-type': 'application/json'
         },
         body: JSON.stringify({
-          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { id brand name attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } } }"
+          "query": "query { category(input: {title: \"" + this.props.match.params.category + "\"}) { products { id brand name inStock attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } } }"
         })
       });
 
