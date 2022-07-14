@@ -57,6 +57,11 @@
   cursor: pointer;
 }
 
+.product-preview-cart-container-not-active {
+  background-color: grey;
+  cursor: unset;
+}
+
 .product-preview-cart {
   width: 1.5rem;
   height: auto;

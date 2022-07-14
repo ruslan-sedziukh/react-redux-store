@@ -44,19 +44,21 @@ class ProductPreview extends React.Component {
   cartClick() {
     let product = this.props.categories[this.props.category]['products'][this.props.index];
 
-    let cartPayload = { 
-      category: this.props.category, 
-      product: product, 
-      attributes: {}
-    };
-
-    if(product.attributes) {
-      product.attributes.forEach(attribute => {
-        cartPayload.attributes[attribute.id] = { item: { id: attribute.items[0].id } };
-      });
+    if(product.inStock) {
+      let cartPayload = { 
+        category: this.props.category, 
+        product: product, 
+        attributes: {}
+      };
+  
+      if(product.attributes) {
+        product.attributes.forEach(attribute => {
+          cartPayload.attributes[attribute.id] = { item: { id: attribute.items[0].id } };
+        });
+      }
+  
+      this.props.addToCart(cartPayload);
     }
-
-    this.props.addToCart(cartPayload);
   }
 
   render() {
@@ -75,7 +77,7 @@ class ProductPreview extends React.Component {
           <div>
             <img className="product-preview-img" src={src} />
           </div>
-          <div className="product-preview-cart-container" onClick={this.cartClick}>
+          <div className={ product.inStock ?  "product-preview-cart-container" : "product-preview-cart-container product-preview-cart-container-not-active" } onClick={ this.cartClick }>
             <img className="product-preview-cart" src={cart} />
           </div>
         </div>
