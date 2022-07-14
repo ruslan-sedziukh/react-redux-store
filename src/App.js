@@ -7,6 +7,7 @@ import CategoryPage from './components/CategoryPage/CategoryPage.js';
 import Cart from './components/Cart/Cart.js';
 import ProductPage from './components/ProductPage/ProductPage.js';
 import { connect } from 'react-redux';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 class App extends React.Component {
   render() {
@@ -18,6 +19,8 @@ class App extends React.Component {
 
     return (
       <div>
+        <ScrollToTop />
+
         <Route>
           <Header />
         </Route>
