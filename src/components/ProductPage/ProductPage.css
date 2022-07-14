@@ -38,7 +38,7 @@
 
 
 .product-page-main-info{
-  width: 17.5rem;
+  width: 18rem;
 }
 
 .attributes {
@@ -68,19 +68,18 @@
 .product-brand {
   font-weight: 600;
   font-size: 1.875rem;
-  margin: 0;
-  margin-bottom: 1rem;
+  margin: 0 0.5rem 1rem 0;
 }
 
 .product-name {
-  margin: 0;
+  margin: 0 0.5rem 0 0;
   font-style: normal;
   font-size: 1.875rem;
   font-weight: 400;
 }
 
 .product-price {
-  margin: 1.25rem 0 0 0;
+  margin: 1.25rem 0.5rem 0 0;
   font-style: normal;
   font-weight: 700;
   font-size: 1.5rem;
@@ -109,6 +108,7 @@
   background-color: #5ECE7B;
 
   cursor: pointer;
+  margin-right: 0.5rem;
 }
 
 .product-page-desctiption {
@@ -116,4 +116,5 @@
   font-weight: 400;
   font-size: 1rem;
   margin-top: 2.5rem;
+  margin-right: 0.5rem;
 }
