@@ -24,7 +24,7 @@ class ProductPage extends React.Component {
   }
 
   async getProduct() {
-    const query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id name description attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }";
+    const query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id brand name description attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }";
 
     try {
       const response = await fetch('http://localhost:4000/', {
