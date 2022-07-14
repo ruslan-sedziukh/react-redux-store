@@ -111,6 +111,11 @@
   margin-right: 0.5rem;
 }
 
+.product-page-add-to-cart-button-not-active {
+  background-color: grey;
+  cursor: unset;
+}
+
 .product-page-desctiption {
   font-family: 'Roboto';
   font-weight: 400;

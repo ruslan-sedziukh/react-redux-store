@@ -81,12 +81,14 @@ class ProductPage extends React.Component {
   }
 
   addToCart() {
-    const payload = {
-      category: this.props.match.params.category,
-      product: this.state.product,
-      attributes: this.state.attributes
-    };
-    this.props.addToCart(payload);
+    if(this.state.product.inStock) {
+      const payload = {
+        category: this.props.match.params.category,
+        product: this.state.product,
+        attributes: this.state.attributes
+      };
+      this.props.addToCart(payload);
+    }
   }
 
   setBigImg(src) {
@@ -125,7 +127,6 @@ class ProductPage extends React.Component {
           }
           
           let attributeItem = (<Attribute 
-            // index={this.props.index}
             attributeId={attribute.id} 
             theAttribute={theAttribute} 
             attributeValue={element.value}
@@ -150,9 +151,6 @@ class ProductPage extends React.Component {
       });
     }
 
-    // ====================
-    // !!!!!!!!!!!!!!!!!!!!
-    // Add code here
     let galleryImgs = [];
     if(this.state.product.gallery) {
       this.state.product.gallery.forEach(element => {
@@ -188,7 +186,12 @@ class ProductPage extends React.Component {
             <p className="attributes__name">Price:</p>
             <p className="product-price" >{currencySymbol}{price}</p>
           </div>
-          <div className='product-page-add-to-cart-button' onClick={ this.addToCart }>Add to cart</div>
+          <div 
+            className={ this.state.product.inStock ? 'product-page-add-to-cart-button' : 'product-page-add-to-cart-button product-page-add-to-cart-button-not-active' } 
+            onClick={ this.addToCart }
+          >
+            Add to cart
+          </div>
           <div 
             className="product-page-desctiption" 
             dangerouslySetInnerHTML={{__html: this.state.product.description ? this.state.product.description : ''}}
