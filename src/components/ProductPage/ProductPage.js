@@ -181,6 +181,7 @@ class ProductPage extends React.Component {
         </div>
 
         <div className="product-page-main-info" >
+          <p className="product-brand" >{product.brand} </p>
           <p className="product-name" >{product.name} </p>
           {attributes}
           <div className="product-price-block">
