@@ -80,6 +80,7 @@ class ProductPreview extends React.Component {
           <div className={ product.inStock ?  "product-preview-cart-container" : "product-preview-cart-container product-preview-cart-container-not-active" } onClick={ this.cartClick }>
             <img className="product-preview-cart" src={cart} />
           </div>
+          { product.inStock ? '' : <div className="product-preview-out-of-stock">Out of stock</div> }
         </div>
         <Link to={ '/category/' + this.props.category + '/product/' + this.props.id  } >
           <p className="product-preview-name">{product.brand} {product.name}</p> 

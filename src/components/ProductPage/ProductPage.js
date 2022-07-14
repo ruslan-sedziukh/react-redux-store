@@ -175,6 +175,7 @@ class ProductPage extends React.Component {
               src={ this.state.bigImgSrc }
               className='big-img'
             />
+            { this.state.product.inStock ? '' : <div className="product-page-out-of-stock">Out of stock</div> }
           </div>
         </div>
 
