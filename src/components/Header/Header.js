@@ -32,7 +32,7 @@ class Header extends React.Component {
 
   async getCategories() {
     try {
-      const response = await fetch('https://react-redux-store-graphql.herokuapp.com/', {
+      const response = await fetch('http://localhost:4000/', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

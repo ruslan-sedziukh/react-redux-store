@@ -9,7 +9,7 @@ import ProductPreview from "../ProductPreview/ProductPreview.js";
 class CategoryPage extends React.Component {
   async getProducts() {
     try {
-      const response = await fetch('https://react-redux-store-graphql.herokuapp.com/', {
+      const response = await fetch('http://localhost:4000/', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
