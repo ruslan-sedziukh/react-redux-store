@@ -27,7 +27,7 @@ class ProductPage extends React.Component {
     const query = "query { product (id: \"" + this.props.match.params.product + "\" ) { id brand name inStock description attributes { id name items { displayValue value id } } prices { currency { label symbol } amount } gallery } }";
 
     try {
-      const response = await fetch('http://localhost:4000/', {
+      const response = await fetch('https://react-redux-store-graphql.herokuapp.com/', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
