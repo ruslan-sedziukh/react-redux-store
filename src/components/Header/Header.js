@@ -58,7 +58,7 @@ class Header extends React.Component {
 
   async getCurrencies() {
     try {
-      const response = await fetch('http://localhost:4000/', {
+      const response = await fetch('https://react-redux-store-graphql.herokuapp.com/', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
