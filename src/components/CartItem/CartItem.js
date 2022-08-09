@@ -69,7 +69,7 @@ class CartItem extends React.Component {
 
     product.prices.forEach(element => {
       if(element.currency.label === currencyLabel) {
-        price = element.amount;
+        price = element.amount.toFixed(2);
       }
     });
 

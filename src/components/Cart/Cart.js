@@ -51,6 +51,8 @@ class Cart extends React.Component {
       total = total + (item.amount * price);
     });
 
+    total = total.toFixed(2);
+
 
     // Mini and bige elements
     const miniCartHead = (
@@ -70,7 +72,7 @@ class Cart extends React.Component {
       <div>
         <div className='mini-cart-container__total'>
           <span>Total</span>
-          <span>{currencySymbol}{Math.round(total * 100) / 100}</span>
+          <span>{currencySymbol}{total}</span>
         </div>
         <div className='mini-cart-container__buttons-container' >
           <Link className='mini-cart-container__buttons-container__view-bag' to='/cart' onClick={this.props.toggleMiniCart}>View bag</Link>
@@ -90,7 +92,7 @@ class Cart extends React.Component {
           <tbody>
             <tr>
               <td>Tax 21%:</td>
-              <td>{currencySymbol}{Math.round((total * 0.21) * 100) / 100}</td>
+              <td>{currencySymbol}{(total * 0.21).toFixed(2)}</td>
             </tr>
             <tr>
               <td>Quantity:</td>
@@ -98,7 +100,7 @@ class Cart extends React.Component {
             </tr>
             <tr>
               <td>Total:</td>
-              <td>{currencySymbol}{Math.round(total * 100) / 100}</td>
+              <td>{currencySymbol}{total}</td>
             </tr>
           </tbody>
         </table>

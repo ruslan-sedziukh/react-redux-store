@@ -68,7 +68,7 @@ class ProductPreview extends React.Component {
       return element.currency.label === this.props.currency;
     });
     const symbol = pricesArr[priceIndex]['currency']['symbol'];
-    const amount = pricesArr[priceIndex]['amount'];
+    const amount = pricesArr[priceIndex]['amount'].toFixed(2);
     const src = product.gallery[0];
 
     return(

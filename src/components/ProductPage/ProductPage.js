@@ -111,7 +111,7 @@ class ProductPage extends React.Component {
     if(this.state.product.prices) {
       product.prices.forEach(element => {
         if(element.currency.label === currencyLabel) {
-          price = element.amount;
+          price = element.amount.toFixed(2);
         }
       });
     }
