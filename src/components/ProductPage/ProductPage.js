@@ -1,12 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addToCart, changeAttribute } from '../../store/cartSlice.js';
+import { addToCart } from '../../store/cartSlice.js';
 import './ProductPage.css';
 import Attribute from "../Attribute/Attribute.js";
 import { withRouter } from "react-router-dom";
 import './ProductPage.css';
 import ProductPreviewGalleryImg from "../ProductPreviewGalleryImg/ProductPreviewGalleryImg.js";
 import dompurify from 'dompurify';
+import PropTypes from 'prop-types';
 
 class ProductPage extends React.Component {
   constructor(props) {
@@ -40,11 +41,6 @@ class ProductPage extends React.Component {
 
       if (response.ok) {
         const data = await response.json();
-
-        const payload = {
-          category: this.props.match.params.category,
-          product: data.data.product
-        };
 
         this.setState({ product: data.data.product });
 
@@ -105,6 +101,7 @@ class ProductPage extends React.Component {
     let attributes = [];
 
     let attributesN = 0;
+    // eslint-disable-next-line no-unused-vars
     for(let i in this.state.attributes) {
       attributesN ++;
     }
@@ -175,6 +172,7 @@ class ProductPage extends React.Component {
             <img
               src={ this.state.bigImgSrc }
               className='big-img'
+              alt={product.name}
             />
             { this.state.product.inStock ? '' : <div className="product-page-out-of-stock">Out of stock</div> }
           </div>
@@ -203,6 +201,13 @@ class ProductPage extends React.Component {
       </div>
     );
   }
+}
+
+ProductPage.propTypes = {
+  match: PropTypes.object,
+  addToCart: PropTypes.func,
+  currencies: PropTypes.object,
+  isMini: PropTypes.bool
 }
 
 function mapStateToProps(state) {

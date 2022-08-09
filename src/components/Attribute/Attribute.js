@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addToCart, changeAttribute } from '../../store/cartSlice.js';
 import './Attribute.css';
+import PropTypes from 'prop-types';
 
 class Attribute extends React.Component {
   constructor(props){
@@ -78,5 +79,16 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+Attribute.propTypes = {
+  index: PropTypes.number,
+  attributeId: PropTypes.string,
+  itemId: PropTypes.string,
+  changeAttribute: PropTypes.func,
+  setAttribute: PropTypes.func,
+  theAttribute: PropTypes.bool,
+  isMini: PropTypes.bool,
+  productPage: PropTypes.bool,
+  attributeValue: PropTypes.string
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(Attribute);

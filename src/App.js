@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
@@ -8,6 +7,7 @@ import Cart from './components/Cart/Cart.js';
 import ProductPage from './components/ProductPage/ProductPage.js';
 import { connect } from 'react-redux';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import PropTypes from 'prop-types';
 
 class App extends React.Component {
   render() {
@@ -47,6 +47,9 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  categories: PropTypes.object
+}
 
 function mapStateToProps(state) {
   return { categories: state.categories };

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './ProductPreview.css';
 import cart from './cart.svg';
 import { addToCart } from '../../store/cartSlice.js';
+import PropTypes from 'prop-types';
 
 class ProductPreview extends React.Component {
   constructor(props) {
@@ -92,6 +93,15 @@ class ProductPreview extends React.Component {
       </Link>
     );
   }
+}
+
+ProductPreview.propTypes = {
+  categories: PropTypes.object,
+  category: PropTypes.string,
+  index: PropTypes.number,
+  addToCart: PropTypes.func,
+  currency: PropTypes.string,
+  id: PropTypes.string
 }
 
 function mapStateToProps(state) {

@@ -3,6 +3,7 @@ import './Cart.css';
 import CartItem from '../CartItem/CartItem';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Cart extends React.Component {
   componentDidMount() {
@@ -119,6 +120,16 @@ class Cart extends React.Component {
       </div>
     );
   }
+}
+
+
+Cart.propTypes = {
+  isMini: PropTypes.bool,
+  closeCartOnClickOutside: PropTypes.func,
+  toggleShouldCloseCart: PropTypes.func,
+  currencies: PropTypes.object,
+  cart: PropTypes.array,
+  toggleMiniCart: PropTypes.func
 }
 
 function mapStateToProps(state) {

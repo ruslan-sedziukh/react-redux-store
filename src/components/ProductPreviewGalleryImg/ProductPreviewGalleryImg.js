@@ -1,5 +1,6 @@
 import React from "react";
 import './ProductPreviewGalleryImg.css';
+import PropTypes from 'prop-types';
 
 class ProductPreviewGalleryImg extends React.Component {
   constructor(props) {
@@ -22,6 +23,11 @@ class ProductPreviewGalleryImg extends React.Component {
       </div>
     );
   }
+}
+
+ProductPreviewGalleryImg.propTypes = {
+  setBigImg: PropTypes.func,
+  src: PropTypes.string
 }
 
 export default ProductPreviewGalleryImg;

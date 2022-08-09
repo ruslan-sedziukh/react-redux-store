@@ -2,6 +2,7 @@ import React from 'react';
 import './CurrencyItem.css';
 import { connect } from 'react-redux';
 import { setCurrency } from '../../store/currenciesSlice.js';
+import PropTypes from 'prop-types';
 
 class CurrencyItem extends React.Component {
   constructor(props) {
@@ -23,6 +24,11 @@ class CurrencyItem extends React.Component {
   }
 }
 
+CurrencyItem.propTypes = {
+  setCurrency: PropTypes.func,
+  currency: PropTypes.object,
+  closeList: PropTypes.func
+}
 
 
 function mapStateToProps(state) {
