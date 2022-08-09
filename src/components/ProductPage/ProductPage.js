@@ -6,6 +6,7 @@ import Attribute from "../Attribute/Attribute.js";
 import { withRouter } from "react-router-dom";
 import './ProductPage.css';
 import ProductPreviewGalleryImg from "../ProductPreviewGalleryImg/ProductPreviewGalleryImg.js";
+import dompurify from 'dompurify';
 
 class ProductPage extends React.Component {
   constructor(props) {
@@ -195,7 +196,7 @@ class ProductPage extends React.Component {
           </div>
           <div 
             className="product-page-desctiption" 
-            dangerouslySetInnerHTML={{__html: this.state.product.description ? this.state.product.description : ''}}
+            dangerouslySetInnerHTML={{__html: this.state.product.description ? dompurify.sanitize(this.state.product.description) : ''}}
           >
           </div>
         </div>
