@@ -5,6 +5,7 @@ import './CartItem.css';
 import Attribute from "../Attribute/Attribute.js";
 import arrowImg from './Vector.svg';
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 class CartItem extends React.Component {
   constructor(props) {
@@ -159,6 +160,15 @@ class CartItem extends React.Component {
       </div>
     );
   }
+}
+
+CartItem.propTypes = {
+  index: PropTypes.number,
+  changeAmount: PropTypes.func,
+  cart: PropTypes.array,
+  currencies: PropTypes.object,
+  isMini: PropTypes.bool,
+  toggleMiniCart: PropTypes.func
 }
 
 function mapStateToProps(state) {

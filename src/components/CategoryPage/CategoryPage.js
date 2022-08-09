@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { getProducts } from '../../store/categoriesSlice.js';
 import './CategoryPage.css';
-import CategoryPreview from '../ProductPreview/ProductPreview.js';
 import ProductPreview from "../ProductPreview/ProductPreview.js";
+import PropTypes from 'prop-types';
 
 class CategoryPage extends React.Component {
   async getProducts() {
@@ -75,6 +75,13 @@ class CategoryPage extends React.Component {
       </div>
     );
   }
+}
+
+CategoryPage.propTypes = {
+  match: PropTypes.object,
+  getProducts: PropTypes.func,
+  categories: PropTypes.object,
+  currencies: PropTypes.object
 }
 
 function mapStateToProps(state) {

@@ -1,0 +1,4 @@
+# Exclude all files in project directory
+# /*
+
+.eslintrc.js

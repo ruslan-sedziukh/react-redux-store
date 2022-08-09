@@ -3,6 +3,7 @@ import './CurrencyList.css';
 import { connect } from 'react-redux';
 import { setCurrency } from '../../store/currenciesSlice.js';
 import CurrencyItem from '../CurrencyItem/CurrencyItem';
+import PropTypes from 'prop-types';
 
 class CurrencyList extends React.Component {
   componentDidMount() {
@@ -35,7 +36,12 @@ class CurrencyList extends React.Component {
   }
 }
 
-
+CurrencyList.propTypes = {
+  closeCurrencyListOnClickOutside: PropTypes.func,
+  toggleShouldCloseCurrencyList: PropTypes.func,
+  currencies: PropTypes.object,
+  closeList: PropTypes.func
+}
 
 function mapStateToProps(state) {
   return { currencies: state.currencies };

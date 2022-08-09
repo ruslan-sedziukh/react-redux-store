@@ -9,6 +9,7 @@ import { getCategories } from '../../store/categoriesSlice.js';
 import { getCurrencies, setCurrency } from '../../store/currenciesSlice.js';
 import CurrencyList from '../CurrencyList/CurrencyList.js';
 import Cart from '../Cart/Cart.js';
+import PropTypes from 'prop-types';
 
 class Header extends React.Component {
   constructor(props) {
@@ -187,7 +188,7 @@ class Header extends React.Component {
 
     for (let category in this.props.categories) {
       links.push(<NavLink to={'/category/' + category} key={category}>{category}</NavLink>);
-    };
+    }
 
     let arrowClass = '';
     if(this.state.currencyList === false) {
@@ -245,6 +246,15 @@ class Header extends React.Component {
       </div>
     );
   }
+}
+
+Header.propTypes = {
+  getCategories: PropTypes.func,
+  setCurrency: PropTypes.func,
+  currencies: PropTypes.object,
+  getCurrencies: PropTypes.func,
+  categories: PropTypes.object,
+  cart: PropTypes. array
 }
 
 function mapStateToProps(state) {
