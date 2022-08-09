@@ -41,7 +41,9 @@ class ProductPreview extends React.Component {
     node.style.boxShadow = '';
   }
 
-  cartClick() {
+  cartClick(event) {
+    event.preventDefault();
+    
     let product = this.props.categories[this.props.category]['products'][this.props.index];
 
     if(product.inStock) {
@@ -72,21 +74,22 @@ class ProductPreview extends React.Component {
     const src = product.gallery[0];
 
     return(
-      <div className="product-preview" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-        <div className="product-preview-img-container">
-          <div>
-            <img className="product-preview-img" src={src} />
+      <Link to={'/category/' + this.props.category + '/product/' + this.props.id} >
+        <div className="product-preview" onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+          <div className="product-preview-img-container">
+            <div>
+              <img className="product-preview-img" src={src} />
+            </div>
+            <div className={product.inStock ? "product-preview-cart-container" : "product-preview-cart-container product-preview-cart-container-not-active"} onClick={this.cartClick}>
+              <img className="product-preview-cart" src={cart} />
+            </div>
+            {product.inStock ? '' : <div className="product-preview-out-of-stock">Out of stock</div>}
           </div>
-          <div className={ product.inStock ?  "product-preview-cart-container" : "product-preview-cart-container product-preview-cart-container-not-active" } onClick={ this.cartClick }>
-            <img className="product-preview-cart" src={cart} />
-          </div>
-          { product.inStock ? '' : <div className="product-preview-out-of-stock">Out of stock</div> }
+
+          <p className="product-preview-name">{product.brand} {product.name}</p>
+          <p className="product-preview-price">{symbol}{amount}</p>
         </div>
-        <Link to={ '/category/' + this.props.category + '/product/' + this.props.id  } >
-          <p className="product-preview-name">{product.brand} {product.name}</p> 
-        </Link>
-        <p className="product-preview-price">{symbol}{amount}</p>
-      </div>
+      </Link>
     );
   }
 }
