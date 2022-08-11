@@ -46,15 +46,14 @@ class CategoryPage extends React.Component {
   }
 
   render() {
-    let products = [];
-    let index = 0;
+    const products = [];
 
     // Two if`s needed to prevent error occurring when reloading category page. 
     // In this case when component render categories is an empty object and 
     // we need to wait for this data to be fetched before render. 
     if(this.props.categories[this.props.match.params.category] && this.props.currencies.currency) {
       if(this.props.categories[this.props.match.params.category]['products'])
-      this.props.categories[this.props.match.params.category]['products'].forEach(element => {
+      this.props.categories[this.props.match.params.category]['products'].forEach((element, index) => {
         products.push(<ProductPreview 
           category={this.props.match.params.category} 
           id={element.id}

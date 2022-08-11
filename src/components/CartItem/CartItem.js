@@ -74,10 +74,10 @@ class CartItem extends React.Component {
       }
     });
 
-    let attributes = [];
+    const attributes = [];
 
     product.attributes.forEach(attribute => {
-      let attributeList = [];
+      const attributeList = [];
 
       attribute.items.forEach(element => {
         let theAttribute = false;
@@ -86,7 +86,7 @@ class CartItem extends React.Component {
         }
 
         
-        let attributeItem = (<Attribute 
+        const attributeItem = (<Attribute 
           index={this.props.index}
           attributeId={attribute.id} 
           theAttribute={theAttribute} 

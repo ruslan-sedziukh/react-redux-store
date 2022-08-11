@@ -12,7 +12,7 @@ class Attribute extends React.Component {
   }
 
   changeAttributeOfCartItem() {
-    let payload = {
+    const payload = {
       index: this.props.index,
       attribute: {
         id: this.props.attributeId,

@@ -8,27 +8,26 @@ import PropTypes from 'prop-types';
 class Cart extends React.Component {
   componentDidMount() {
     if(this.props.isMini) {
-      let html = document.getElementsByTagName('html');
+      const html = document.getElementsByTagName('html');
       html[0].addEventListener('click', this.props.closeCartOnClickOutside);
     }
   }
 
   componentWillUnmount() {
     if(this.props.isMini) {
-      let html = document.getElementsByTagName('html');
+      const html = document.getElementsByTagName('html');
       html[0].removeEventListener('click', this.props.closeCartOnClickOutside);
       this.props.toggleShouldCloseCart();
     }
   }
 
   render() {
-    let items = [];
-    let index = 0;
+    const items = [];
     let amount = 0;
     let total = 0;
     const currencySymbol = this.props.currencies.currency ? this.props.currencies.currency.symbol : '';
 
-    this.props.cart.forEach(item => {
+    this.props.cart.forEach((item, index) => {
       items.push(
         <CartItem 
           index={index} 

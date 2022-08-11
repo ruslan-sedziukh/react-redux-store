@@ -186,7 +186,7 @@ class Header extends React.Component {
   render() {
     const links = [];
 
-    for (let category in this.props.categories) {
+    for (const category in this.props.categories) {
       links.push(<NavLink to={'/category/' + category} key={category}>{category}</NavLink>);
     }
 
