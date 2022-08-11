@@ -45,10 +45,10 @@ class ProductPreview extends React.Component {
   cartClick(event) {
     event.preventDefault();
     
-    let product = this.props.categories[this.props.category]['products'][this.props.index];
+    const product = this.props.categories[this.props.category]['products'][this.props.index];
 
     if(product.inStock) {
-      let cartPayload = { 
+      const cartPayload = { 
         category: this.props.category, 
         product: product, 
         attributes: {}

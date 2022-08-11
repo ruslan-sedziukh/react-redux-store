@@ -46,7 +46,7 @@ class ProductPage extends React.Component {
 
         // Set default attributes
 
-        let attributes = {};
+        const attributes = {};
         data.data.product.attributes.forEach(attribute => {
           attributes[attribute.id] = { item: { id: attribute.items[0].id } };
         });
@@ -98,11 +98,11 @@ class ProductPage extends React.Component {
     const currencySymbol = this.props.currencies.currency ? this.props.currencies.currency.symbol : '';
     let price;
 
-    let attributes = [];
+    const attributes = [];
 
     let attributesN = 0;
     // eslint-disable-next-line no-unused-vars
-    for(let i in this.state.attributes) {
+    for(const i in this.state.attributes) {
       attributesN ++;
     }
 
@@ -116,7 +116,7 @@ class ProductPage extends React.Component {
 
     if(this.state.product.attributes && attributesN){
       product.attributes.forEach(attribute => {
-        let attributeList = [];
+        const attributeList = [];
   
         attribute.items.forEach(element => {
           let theAttribute = false;
@@ -124,7 +124,7 @@ class ProductPage extends React.Component {
             theAttribute = true;
           }
           
-          let attributeItem = (<Attribute 
+          const attributeItem = (<Attribute 
             attributeId={attribute.id} 
             theAttribute={theAttribute} 
             attributeValue={element.value}
@@ -149,7 +149,7 @@ class ProductPage extends React.Component {
       });
     }
 
-    let galleryImgs = [];
+    const galleryImgs = [];
     if(this.state.product.gallery) {
       this.state.product.gallery.forEach(element => {
         galleryImgs.push(

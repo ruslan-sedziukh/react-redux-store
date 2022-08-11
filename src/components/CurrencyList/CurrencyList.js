@@ -7,12 +7,12 @@ import PropTypes from 'prop-types';
 
 class CurrencyList extends React.Component {
   componentDidMount() {
-    let html = document.getElementsByTagName('html');
+    const html = document.getElementsByTagName('html');
     html[0].addEventListener('click', this.props.closeCurrencyListOnClickOutside);
   }
 
   componentWillUnmount() {
-    let html = document.getElementsByTagName('html');
+    const html = document.getElementsByTagName('html');
     html[0].removeEventListener('click', this.props.closeCurrencyListOnClickOutside);
     this.props.toggleShouldCloseCurrencyList();
   }

@@ -18,7 +18,7 @@ const options = {
       });
 
       if (index === -1) {
-        let payload = action.payload;
+        const payload = action.payload;
         payload.amount = 1;
         state.push(payload);
       }
@@ -27,7 +27,7 @@ const options = {
       }
     },
     changeAttribute: (state, action) => {
-      let newState = JSON.parse(JSON.stringify(state));
+      const newState = JSON.parse(JSON.stringify(state));
       newState[action.payload.index].attributes[action.payload.attribute.id].item = action.payload.attribute.item;
       
       // Stack items with same attributes
@@ -57,7 +57,7 @@ const options = {
             if(i !== stackIndex) {
               veryNewState.push(newState[i]);
             }
-          }; 
+          } 
           return veryNewState;
       } 
       else {
